@@ -1,0 +1,2742 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Şevval Melike — 25 Kasım 2003</title>
+
+  <!-- Zarif Tipografi: Playfair Display, Cormorant Garamond, Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ==========================================================================
+       1. TASARIM DEĞİŞKENLERİ & DERİN GECE TEMASI
+       ========================================================================== */
+    :root {
+      --bg-obsidian: #050814;
+      --bg-indigo: #0c132b;
+      --bg-card: rgba(12, 19, 43, 0.72);
+      --bg-card-strong: rgba(8, 13, 30, 0.9);
+      --gold: #e8c888;
+      --gold-light: #f6e2b3;
+      --gold-border: rgba(232, 200, 136, 0.28);
+      --gold-border-soft: rgba(232, 200, 136, 0.14);
+      --ivory: #f6f2ea;
+      --text-muted: #9aa7c5;
+      --text-dim: #667394;
+      --danger: #ff8a96;
+      --emerald: #8ce4be;
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-letter: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-obsidian);
+      color: var(--ivory);
+      font-family: var(--font-sans);
+      overflow-x: hidden;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -5%, rgba(28, 43, 94, 0.65) 0%, transparent 65%),
+        radial-gradient(ellipse 60% 40% at 85% 45%, rgba(232, 200, 136, 0.05) 0%, transparent 60%),
+        linear-gradient(180deg, #070c1e 0%, #050814 55%, #04060f 100%);
+      color: var(--ivory);
+      line-height: 1.65;
+      overflow-x: hidden;
+      position: relative;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Sayfa Geneli İnce Yıldız Tarlası */
+    #bg-starfield {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* ==========================================================================
+       2. SABİT ÜST GEZİNTİ ÇUBUĞU
+       ========================================================================== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background: rgba(5, 8, 20, 0.72);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .navbar-inner {
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .nav-monogram {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--gold);
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+    }
+
+    .nav-monogram-badge {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid var(--gold-border);
+      background: rgba(232, 200, 136, 0.08);
+      display: grid;
+      place-items: center;
+      font-size: 0.84rem;
+      letter-spacing: 0.06em;
+      color: var(--gold-light);
+    }
+
+    .nav-date-sub {
+      font-family: var(--font-sans);
+      font-size: 0.74rem;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      display: none;
+    }
+
+    @media (min-width: 560px) {
+      .nav-date-sub {
+        display: inline;
+      }
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.84rem;
+      font-weight: 500;
+      padding: 8px 12px;
+      border-radius: 999px;
+      transition: color 0.25s ease, background 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover,
+    .nav-link:focus-visible {
+      color: var(--ivory);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-surprise-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 15px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(232, 200, 136, 0.2), rgba(232, 200, 136, 0.08));
+      border: 1px solid var(--gold-border);
+      color: var(--gold-light);
+      font-family: var(--font-sans);
+      font-size: 0.84rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .nav-surprise-pill:hover,
+    .nav-surprise-pill:focus-visible {
+      border-color: var(--gold);
+      background: linear-gradient(135deg, rgba(232, 200, 136, 0.3), rgba(232, 200, 136, 0.14));
+      box-shadow: 0 0 22px rgba(232, 200, 136, 0.22);
+      transform: translateY(-1px);
+    }
+
+    /* ==========================================================================
+       3. ANA İÇERİK KAPSAYICI & BÖLÜM 1 (YILDIZ HARİTASI)
+       ========================================================================== */
+    .main-container {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 18px 90px;
+    }
+
+    .hero-section {
+      min-height: 100vh;
+      padding-top: 96px;
+      padding-bottom: 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .eyebrow {
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+      opacity: 0.92;
+    }
+
+    .hero-name {
+      font-family: var(--font-display);
+      font-size: clamp(2.15rem, 5.8vw, 3.6rem);
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      line-height: 1.15;
+      color: var(--ivory);
+      margin-bottom: 10px;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(0.88rem, 2.2vw, 1rem);
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      margin-bottom: 32px;
+    }
+
+    /* Müze Kalitesinde Çerçeveli Yıldız Haritası */
+    .star-chart-card {
+      width: 100%;
+      max-width: 530px;
+      background: linear-gradient(168deg, rgba(14, 22, 48, 0.92) 0%, rgba(6, 10, 24, 0.96) 100%);
+      border-radius: var(--radius-xl);
+      padding: 26px 22px 28px;
+      border: 1px solid var(--gold-border);
+      box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.75),
+        0 0 70px rgba(232, 200, 136, 0.07),
+        inset 0 0 0 7px rgba(5, 8, 20, 0.85),
+        inset 0 0 0 8px rgba(232, 200, 136, 0.14);
+      position: relative;
+    }
+
+    .chart-stage {
+      width: 100%;
+      max-width: 450px;
+      aspect-ratio: 1 / 1;
+      margin: 0 auto 20px;
+      position: relative;
+      cursor: crosshair;
+      touch-action: manipulation;
+    }
+
+    #birth-sky-canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border-radius: 50%;
+    }
+
+    /* Yıldız İpucu Kutusu (Hover / Dokunma) */
+    .star-tooltip {
+      position: absolute;
+      z-index: 10;
+      pointer-events: none;
+      background: rgba(7, 11, 26, 0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--gold-border);
+      border-radius: 10px;
+      padding: 7px 12px;
+      font-size: 0.78rem;
+      color: var(--ivory);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.65);
+      opacity: 0;
+      transform: translate(-50%, -118%);
+      transition: opacity 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .star-tooltip.visible {
+      opacity: 1;
+    }
+
+    .star-tooltip strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 0.88rem;
+      color: var(--gold-light);
+    }
+
+    .star-tooltip span {
+      color: var(--text-muted);
+      font-size: 0.72rem;
+    }
+
+    .chart-ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      width: 70%;
+      margin: 4px auto 14px;
+    }
+
+    .chart-ornament::before,
+    .chart-ornament::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(232, 200, 136, 0.55), transparent);
+    }
+
+    .chart-ornament span {
+      color: var(--gold);
+      font-size: 0.8rem;
+    }
+
+    .chart-recipient {
+      font-family: var(--font-display);
+      font-size: clamp(1.35rem, 3.6vw, 1.85rem);
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 4px;
+    }
+
+    .chart-caption {
+      font-size: 0.74rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .chart-coords {
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      opacity: 0.9;
+    }
+
+    .chart-hint {
+      margin-top: 10px;
+      font-size: 0.74rem;
+      color: var(--text-dim);
+    }
+
+    /* Aşağı Kaydır İşareti */
+    .scroll-invite {
+      margin-top: 34px;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 9px;
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.84rem;
+      letter-spacing: 0.05em;
+      transition: color 0.25s ease;
+    }
+
+    .scroll-invite:hover {
+      color: var(--gold-light);
+    }
+
+    .scroll-circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--gold-border);
+      display: grid;
+      place-items: center;
+      color: var(--gold);
+      animation: gentleFloat 2.4s infinite ease-in-out;
+    }
+
+    @keyframes gentleFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+
+    /* ==========================================================================
+       4. BÖLÜM 2: DOĞUM GÜNÜ NOTU (KAYDIRDIKÇA AÇILIR)
+       ========================================================================== */
+    .letter-section {
+      padding: 72px 0 84px;
+    }
+
+    .letter-card {
+      max-width: 720px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--gold-border-soft);
+      padding: clamp(32px, 6vw, 60px);
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.58);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .letter-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 16%;
+      right: 16%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .letter-header {
+      text-align: center;
+      margin-bottom: 34px;
+    }
+
+    .letter-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.65rem, 4vw, 2.35rem);
+      font-weight: 600;
+      color: var(--gold-light);
+      line-height: 1.25;
+      margin-top: 8px;
+    }
+
+    .letter-divider {
+      width: 84px;
+      height: 1px;
+      margin: 22px auto 0;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .letter-body {
+      font-family: var(--font-letter);
+      font-size: clamp(1.2rem, 2.8vw, 1.38rem);
+      line-height: 1.88;
+      color: var(--ivory);
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .reveal-item {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal-item.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .letter-footer {
+      margin-top: 38px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(232, 200, 136, 0.14);
+      text-align: right;
+    }
+
+    .letter-signoff {
+      font-family: var(--font-letter);
+      font-style: italic;
+      font-size: 1.24rem;
+      color: var(--text-muted);
+    }
+
+    .letter-sender {
+      font-family: var(--font-display);
+      font-size: 1.22rem;
+      color: var(--gold-light);
+      margin-top: 4px;
+    }
+
+    /* Mektup Altı Gizemli Sürpriz Çağrısı (HİÇBİR YILDIZ İPUCU YOK) */
+    .letter-cta-wrap {
+      margin-top: 44px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .letter-cta-sub {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* ==========================================================================
+       5. BÖLÜM 3: ŞİFRELİ "SÜRPRİZ" ALANI & KİLİT AÇILINCA YILDIZ AÇIKLAMASI
+       ========================================================================== */
+    .surprise-section {
+      padding: 24px 0 40px;
+    }
+
+    .surprise-card {
+      max-width: 660px;
+      margin: 0 auto;
+      background: linear-gradient(165deg, rgba(15, 23, 50, 0.86) 0%, rgba(7, 11, 26, 0.94) 100%);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--gold-border);
+      padding: clamp(32px, 5.5vw, 54px);
+      text-align: center;
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.68);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .emblem-circle {
+      width: 68px;
+      height: 68px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(232, 200, 136, 0.24), rgba(232, 200, 136, 0.04));
+      border: 1px solid rgba(232, 200, 136, 0.42);
+      display: grid;
+      place-items: center;
+      color: var(--gold-light);
+      box-shadow: 0 0 34px rgba(232, 200, 136, 0.16);
+    }
+
+    .surprise-heading {
+      font-family: var(--font-display);
+      font-size: clamp(1.65rem, 4vw, 2.2rem);
+      font-weight: 600;
+      color: var(--ivory);
+      margin-bottom: 10px;
+    }
+
+    .surprise-subtitle {
+      font-size: 0.96rem;
+      color: var(--text-muted);
+      max-width: 460px;
+      margin: 0 auto 26px;
+    }
+
+    /* Şifre Formu */
+    .gate-form {
+      max-width: 340px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .password-field-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .password-input {
+      width: 100%;
+      padding: 15px 48px 15px 18px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--gold-border);
+      background: rgba(5, 8, 20, 0.88);
+      color: var(--ivory);
+      font-family: var(--font-sans);
+      font-size: 1.08rem;
+      letter-spacing: 0.18em;
+      text-align: center;
+      outline: none;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .password-input:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(232, 200, 136, 0.16);
+    }
+
+    .pw-eye-btn {
+      position: absolute;
+      right: 10px;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+
+    .pw-eye-btn:hover {
+      color: var(--gold-light);
+    }
+
+    .gate-error {
+      min-height: 20px;
+      font-size: 0.85rem;
+      color: var(--danger);
+    }
+
+    .shake-x {
+      animation: shakeX 0.42s ease;
+    }
+
+    @keyframes shakeX {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-8px); }
+      40%, 80% { transform: translateX(8px); }
+    }
+
+    /* Butonlar */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px 26px;
+      border-radius: var(--radius-md);
+      border: none;
+      background: linear-gradient(135deg, #f1d497 0%, #d4a857 100%);
+      color: #080c1c;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: 0 12px 30px rgba(232, 200, 136, 0.24);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 36px rgba(232, 200, 136, 0.34);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 20px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--gold-border);
+      background: rgba(12, 19, 43, 0.65);
+      color: var(--ivory);
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary:focus-visible {
+      border-color: var(--gold);
+      color: var(--gold-light);
+      background: rgba(232, 200, 136, 0.08);
+    }
+
+    /* Kilit Açıldıktan Sonra Görünen Sürpriz Alanı */
+    .reveal-star-panel {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .reveal-star-panel.is-unlocked {
+      display: flex;
+      animation: starlightReveal 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    @keyframes starlightReveal {
+      from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.97);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .star-badge-card {
+      width: 100%;
+      padding: 20px 22px;
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at 50% 0%, rgba(232, 200, 136, 0.16), rgba(5, 8, 20, 0.72) 70%);
+      border: 1px solid rgba(232, 200, 136, 0.4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .star-badge-official {
+      font-size: 0.76rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .star-badge-given {
+      font-family: var(--font-display);
+      font-size: clamp(1.55rem, 4vw, 2.05rem);
+      color: var(--gold-light);
+      letter-spacing: 0.04em;
+    }
+
+    .star-badge-constellation {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .reveal-poetic-text {
+      font-family: var(--font-letter);
+      font-size: 1.24rem;
+      line-height: 1.78;
+      color: var(--ivory);
+      max-width: 520px;
+    }
+
+    /* Canlı Capella Konum Kartı */
+    .live-status-grid {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      text-align: center;
+    }
+
+    .status-cell {
+      background: rgba(5, 8, 20, 0.74);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      padding: 12px 10px;
+    }
+
+    .status-cell small {
+      display: block;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .status-cell strong {
+      font-size: 0.94rem;
+      color: var(--gold-light);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .status-cell strong.is-up {
+      color: var(--emerald);
+    }
+
+    .ar-cta-stack {
+      width: 100%;
+      max-width: 390px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    /* ==========================================================================
+       6. TAM EKRAN AR YILDIZ BULUCU (CAPELLA)
+       ========================================================================== */
+    .ar-stage {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: #03050e;
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      touch-action: none;
+      user-select: none;
+    }
+
+    .ar-stage.active {
+      display: flex;
+    }
+
+    #ar-camera-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    #ar-sky-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .ar-top-hud {
+      position: relative;
+      z-index: 6;
+      padding: max(14px, env(safe-area-inset-top)) 16px 14px;
+      background: linear-gradient(180deg, rgba(5, 8, 20, 0.9) 0%, rgba(5, 8, 20, 0) 100%);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .ar-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .ar-chip-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(12, 19, 43, 0.84);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--gold-border);
+      color: var(--ivory);
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .ar-target-chip {
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: rgba(232, 200, 136, 0.14);
+      border: 1px solid rgba(232, 200, 136, 0.42);
+      color: var(--gold-light);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-align: center;
+    }
+
+    .ar-info-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .ar-info-box {
+      background: rgba(7, 11, 26, 0.76);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 7px 8px;
+      text-align: center;
+    }
+
+    .ar-info-box small {
+      display: block;
+      font-size: 0.64rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+    }
+
+    .ar-info-box strong {
+      font-size: 0.84rem;
+      color: var(--ivory);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Açılır Kapanır Pusula Ayarı */
+    .compass-panel {
+      display: none;
+      flex-direction: column;
+      gap: 8px;
+      background: rgba(8, 13, 30, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--gold-border);
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
+
+    .compass-panel.open {
+      display: flex;
+    }
+
+    .compass-panel-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--gold-light);
+    }
+
+    .compass-reset-btn {
+      background: none;
+      border: none;
+      color: var(--gold);
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .compass-panel input[type="range"] {
+      width: 100%;
+      accent-color: var(--gold);
+      cursor: pointer;
+    }
+
+    .compass-panel p {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    /* Alt AR HUD */
+    .ar-bottom-hud {
+      position: relative;
+      z-index: 6;
+      padding: 16px 16px max(22px, env(safe-area-inset-bottom));
+      background: linear-gradient(0deg, rgba(5, 8, 20, 0.94) 0%, rgba(5, 8, 20, 0) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      text-align: center;
+    }
+
+    .ar-locked-card {
+      display: none;
+      width: 100%;
+      max-width: 420px;
+      background: rgba(10, 16, 36, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--gold);
+      border-radius: 18px;
+      padding: 16px 20px;
+      box-shadow: 0 12px 44px rgba(0, 0, 0, 0.7), 0 0 32px rgba(232, 200, 136, 0.18);
+    }
+
+    .ar-locked-card.visible {
+      display: block;
+      animation: starlightReveal 0.45s ease forwards;
+    }
+
+    .ar-locked-card h4 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      color: var(--gold-light);
+      margin-bottom: 3px;
+    }
+
+    .ar-locked-card .ar-locked-sub {
+      font-size: 0.76rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .ar-locked-card p {
+      font-family: var(--font-letter);
+      font-size: 1.12rem;
+      color: var(--ivory);
+      line-height: 1.5;
+    }
+
+    .ar-guide-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: rgba(12, 19, 43, 0.86);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--gold-border);
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--ivory);
+      transition: all 0.25s ease;
+    }
+
+    .ar-guide-pill.locked {
+      background: rgba(232, 200, 136, 0.22);
+      border-color: var(--gold);
+      color: var(--gold-light);
+      box-shadow: 0 0 26px rgba(232, 200, 136, 0.3);
+    }
+
+    .ar-mode-hint {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+    }
+
+    /* Bildirim Çubuğu (alert yerine zarif mesaj kutusu) */
+    .toast-box {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(90px);
+      z-index: 160;
+      background: rgba(12, 19, 43, 0.95);
+      border: 1px solid var(--gold);
+      color: var(--gold-light);
+      padding: 11px 20px;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 500;
+      box-shadow: 0 12px 34px rgba(0, 0, 0, 0.72);
+      opacity: 0;
+      transition: all 0.35s ease;
+      pointer-events: none;
+      max-width: 90vw;
+      text-align: center;
+    }
+
+    .toast-box.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .site-footer {
+      text-align: center;
+      padding-top: 24px;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      letter-spacing: 0.04em;
+    }
+
+    @media (max-width: 520px) {
+      .nav-link {
+        padding: 7px 9px;
+        font-size: 0.78rem;
+      }
+      .nav-surprise-pill {
+        padding: 7px 12px;
+        font-size: 0.78rem;
+      }
+      .star-chart-card {
+        padding: 18px 14px 22px;
+      }
+      .live-status-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Sayfa Geneli İnce Parıldayan Arka Plan Yıldızları -->
+  <canvas id="bg-starfield" aria-hidden="true"></canvas>
+
+  <!-- Sabit Üst Gezinti Çubuğu -->
+  <nav class="navbar" aria-label="Ana Menü">
+    <div class="navbar-inner">
+      <a href="#yildiz-haritasi" class="nav-monogram" aria-label="Başlangıca dön">
+        <span class="nav-monogram-badge">ŞM</span>
+        <span class="nav-date-sub">25.11.2003</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#yildiz-haritasi" class="nav-link">Yıldız Haritası</a>
+        <a href="#dogum-gunu-notu" class="nav-link">Notum</a>
+        <a href="#surpriz" class="nav-surprise-pill" id="nav-surprise-btn">
+          <span aria-hidden="true">🔒</span>
+          <span>Sürpriz</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main-container">
+    <!-- ======================================================================
+         BÖLÜM 1: AÇILIŞ & DOĞDUĞU GÜNÜN YILDIZ HARİTASI (25 KASIM 2003, ÇORUM)
+         ====================================================================== -->
+    <section class="hero-section" id="yildiz-haritasi" aria-labelledby="hero-recipient-title">
+      <p class="eyebrow">25 Kasım 2003 • Çorum</p>
+      <h1 class="hero-name" id="hero-recipient-title">Şevval Melike</h1>
+      <p class="hero-subtitle" id="hero-subtitle-text">25 Kasım 2003 • Çorum • Doğduğun Gece Gökyüzü</p>
+
+      <article class="star-chart-card" aria-label="25 Kasım 2003 Çorum Yıldız Haritası">
+        <div class="chart-stage" id="chart-stage">
+          <canvas id="birth-sky-canvas"></canvas>
+          <div class="star-tooltip" id="star-tooltip" role="status" aria-live="polite">
+            <strong id="tooltip-name"></strong>
+            <span id="tooltip-constellation"></span>
+          </div>
+        </div>
+
+        <div class="chart-ornament" aria-hidden="true"><span>✦</span></div>
+        <h2 class="chart-recipient" id="chart-recipient-name">ŞEVVAL MELİKE</h2>
+        <p class="chart-caption">Doğduğun Gece Gökyüzünün Gerçek Haritası</p>
+        <p class="chart-coords" id="chart-coords-caption">40.5506° K, 34.9556° D • 25.11.2003</p>
+        <p class="chart-hint">Parlak yıldızların üzerine gelerek veya dokunarak isimlerini görebilirsin</p>
+      </article>
+
+      <a href="#dogum-gunu-notu" class="scroll-invite">
+        <span>Aşağı Kaydır</span>
+        <span class="scroll-circle" aria-hidden="true">↓</span>
+      </a>
+    </section>
+
+    <!-- ======================================================================
+         BÖLÜM 2: DOĞUM GÜNÜ NOTU
+         ====================================================================== -->
+    <section class="letter-section" id="dogum-gunu-notu" aria-labelledby="letter-heading">
+      <article class="letter-card">
+        <header class="letter-header reveal-item">
+          <p class="eyebrow">Sana Yazdığım</p>
+          <h2 class="letter-title" id="letter-heading">İyi ki Doğdun, Şevval Melike</h2>
+          <div class="letter-divider" aria-hidden="true"></div>
+        </header>
+
+        <div class="letter-body" id="letter-body-container">
+          <!-- Paragraflar CONFIG.letterParagraphs içinden otomatik yerleştirilir -->
+        </div>
+
+        <footer class="letter-footer reveal-item">
+          <p class="letter-signoff" id="letter-signoff-text"></p>
+          <p class="letter-sender" id="letter-sender-text"></p>
+        </footer>
+
+        <!-- Mektup Altı Sürpriz Butonu (Sürprizi bozacak hiçbir ifade içermez) -->
+        <div class="letter-cta-wrap reveal-item">
+          <p class="letter-cta-sub">Senin için sakladığım özel bir şey var...</p>
+          <a href="#surpriz" class="btn-primary">
+            <span aria-hidden="true">🔒</span>
+            <span>Sürpriz</span>
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <!-- ======================================================================
+         BÖLÜM 3: ŞİFRELİ "SÜRPRİZ" SEKME ALANI
+         ====================================================================== -->
+    <section class="surprise-section" id="surpriz" aria-labelledby="surprise-title">
+      <div class="surprise-card">
+        <!-- KİLİTLİ GÖRÜNÜM (Sıfır İpucu — Sadece Sürpriz) -->
+        <div id="surprise-locked-view">
+          <div class="emblem-circle" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </div>
+
+          <h2 class="surprise-heading" id="surprise-title">Sürpriz</h2>
+          <p class="surprise-subtitle">Bu bölümü açmak için şifreyi gir.</p>
+
+          <form class="gate-form" id="surprise-password-form" autocomplete="off">
+            <div class="password-field-wrap">
+              <input
+                type="password"
+                id="surprise-password-input"
+                class="password-input"
+                placeholder="Şifre"
+                aria-label="Sürpriz şifresi"
+                required
+              />
+              <button
+                type="button"
+                class="pw-eye-btn"
+                id="toggle-password-eye"
+                aria-label="Şifreyi göster veya gizle"
+              >
+                <svg id="eye-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+              </button>
+            </div>
+
+            <div class="gate-error" id="gate-error-msg" role="alert"></div>
+
+            <button type="submit" class="btn-primary">Kilidi Aç</button>
+          </form>
+        </div>
+
+        <!-- KİLİDİ AÇILMIŞ GÖRÜNÜM (Büyük Sürpriz: Capella Yıldızı) -->
+        <div class="reveal-star-panel" id="surprise-unlocked-view">
+          <div class="emblem-circle" aria-hidden="true">✦</div>
+
+          <p class="eyebrow">Sürpriz Açıldı</p>
+          <h2 class="surprise-heading">Gökyüzünde Senin Adını Taşıyan Bir Yıldız Var</h2>
+
+          <div class="star-badge-card">
+            <span class="star-badge-official" id="reveal-official-name">CAPELLA • α AURIGAE</span>
+            <strong class="star-badge-given" id="reveal-given-name">✦ Şevval Melike ✦</strong>
+            <span class="star-badge-constellation" id="reveal-constellation">Arabacı Takımyıldızı (Auriga)</span>
+          </div>
+
+          <p class="reveal-poetic-text">
+            Gece gökyüzünün en parlak altın yıldızlarından biri olan Capella, artık benim için senin adını taşıyor.
+            Bu gece başını gökyüzüne kaldırıp telefonunun kamerasını açtığında, tam üzerinde parlayan kendi yıldızını bulabileceksin.
+          </p>
+
+          <!-- Anlık Hesaplanan Capella Gökyüzü Durumu -->
+          <div class="live-status-grid">
+            <div class="status-cell">
+              <small>Anlık Yön (Azimut)</small>
+              <strong id="live-capella-az">--°</strong>
+            </div>
+            <div class="status-cell">
+              <small>Yükseklik Açısı</small>
+              <strong id="live-capella-alt">--°</strong>
+            </div>
+            <div class="status-cell">
+              <small>Gökyüzü Durumu</small>
+              <strong id="live-capella-state">Hesaplanıyor...</strong>
+            </div>
+          </div>
+
+          <div class="ar-cta-stack">
+            <button type="button" class="btn-primary" id="open-live-ar-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                <circle cx="12" cy="13" r="4"></circle>
+              </svg>
+              <span>Kamerayı Aç ve Yıldızını Bul</span>
+            </button>
+
+            <button type="button" class="btn-secondary" id="open-test-ar-btn">
+              <span>Kamera Olmadan Önizle (Test Modu)</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      25 Kasım 2003'ten sonsuzluğa • Şevval Melike için
+    </footer>
+  </main>
+
+  <!-- ========================================================================
+       TAM EKRAN AR YILDIZ BULUCU (CAPELLA — ŞEVVAL MELİKE)
+       ======================================================================== -->
+  <div class="ar-stage" id="ar-stage" role="dialog" aria-modal="true" aria-label="Kamera ile Capella Yıldız Bulucu">
+    <video id="ar-camera-video" autoplay playsinline muted></video>
+    <canvas id="ar-sky-canvas"></canvas>
+
+    <!-- Üst AR HUD -->
+    <div class="ar-top-hud">
+      <div class="ar-top-bar">
+        <button type="button" class="ar-chip-btn" id="ar-close-btn">✕ Çıkış</button>
+        <div class="ar-target-chip" id="ar-header-chip">✦ ŞEVVAL MELİKE (CAPELLA)</div>
+        <button type="button" class="ar-chip-btn" id="ar-compass-toggle">🧭 Pusula Ayarı</button>
+      </div>
+
+      <div class="ar-info-strip">
+        <div class="ar-info-box">
+          <small>Hedef Yön</small>
+          <strong id="hud-target-az">--°</strong>
+        </div>
+        <div class="ar-info-box">
+          <small>Hedef Yükseklik</small>
+          <strong id="hud-target-alt">--°</strong>
+        </div>
+        <div class="ar-info-box">
+          <small>Kalan Açı</small>
+          <strong id="hud-angle-diff">--°</strong>
+        </div>
+      </div>
+
+      <!-- Gizlenebilir Pusula Kalibrasyon Çubuğu (-180° / +180°) -->
+      <div class="compass-panel" id="ar-compass-panel">
+        <div class="compass-panel-head">
+          <span>Pusula Sapma Ayarı: <strong id="compass-offset-readout">0°</strong></span>
+          <button type="button" class="compass-reset-btn" id="compass-reset-btn">Sıfırla</button>
+        </div>
+        <input
+          type="range"
+          id="compass-offset-slider"
+          min="-180"
+          max="180"
+          step="1"
+          value="0"
+          aria-label="Pusula sapma ayarı"
+        />
+        <p>Dışarıda manyetik sapma olursa telefon pusulasını buradan ince ayarlayabilirsin.</p>
+      </div>
+    </div>
+
+    <!-- Alt AR HUD -->
+    <div class="ar-bottom-hud">
+      <div class="ar-locked-card" id="ar-locked-card">
+        <h4 id="ar-locked-title">✦ Şevval Melike ✦</h4>
+        <div class="ar-locked-sub" id="ar-locked-subtitle">Capella • Arabacı Takımyıldızı</div>
+        <p>İşte senin yıldızın... İyi ki doğdun.</p>
+      </div>
+
+      <div class="ar-guide-pill" id="ar-guide-pill">
+        <span id="ar-guide-text">Telefonu gece gökyüzüne doğru çevir...</span>
+      </div>
+
+      <span class="ar-mode-hint" id="ar-mode-hint"></span>
+    </div>
+  </div>
+
+  <!-- Zarif Bildirim Kutusu -->
+  <div class="toast-box" id="toast-box" role="status" aria-live="polite"></div>
+
+  <script>
+    /* ==========================================================================
+       KOLAY DÜZENLEME ALANI (CONFIG)
+       Aşağıdaki metinleri, şifreyi, doğum saatini veya imzayı istediğin gibi
+       düzenleyip kaydedebilirsin.
+       ========================================================================== */
+    const CONFIG = {
+      // Sevgilinin adı
+      recipientName: "Şevval Melike",
+
+      // Doğum tarihi ve saati (YYYY-AA-GG ve SS:DD formatında)
+      birthDate: "2003-11-25",
+      birthTime: "21:00",
+      birthUtcOffset: 2, // Kasım 2003'te Türkiye saati UTC+2 idi
+
+      // Doğum yeri ve koordinatları (Çorum)
+      birthCity: "Çorum, Türkiye",
+      birthLat: 40.5506,
+      birthLon: 34.9556,
+
+      // "Sürpriz" sekmesinin giriş şifresi (İstediğin gibi değiştirebilirsin)
+      password: "2511",
+
+      // Ona armağan ettiğin yıldızın bilgileri (Capella — J2000 kesin koordinatları)
+      starGivenName: "Şevval Melike",
+      starOfficialName: "Capella (α Aurigae)",
+      starConstellation: "Arabacı Takımyıldızı (Auriga)",
+      starRAHours: 5.278155, // 05h 16m 41.36s
+      starDecDeg: 45.9980,   // +45° 59' 52.8"
+
+      // GPS izni verilmezse kullanılacak varsayılan gözlem konumu (Çorum)
+      defaultObserverLat: 40.5506,
+      defaultObserverLon: 34.9556,
+
+      // Doğum günü notu (Aşağıdaki paragrafları dilediğin gibi değiştirebilirsin)
+      letterTitle: "İyi ki Doğdun, Şevval Melike",
+      letterParagraphs: [
+        "25 Kasım 2003 gecesi Çorum semalarında binlerce yıldız sessizce parlıyordu; ama o gece dünyaya gelen en güzel ışık sendin. Yukarıda gördüğün harita, gözlerini açtığın o ilk gecede gökyüzünün tam olarak nasıl göründüğünü saklıyor.",
+        "Sen hayatıma girdiğinden beri en sıradan anlar bile bambaşka bir anlam taşıyor. Gülüşünle günümü aydınlatışın, sesinle içime huzur verişin ve her detayı güzelleştiren kalbin benim en büyük şansım.",
+        "Yeni yaşında tüm dileklerinin tek tek gerçeğe dönüşmesini, yüzünden gülümsemenin hiç eksik olmamasını ve her yeni yaşını el ele kutlamayı diliyorum. İyi ki doğdun, iyi ki varsın, iyi ki benimlesin.",
+        "Bu sayfanın hemen altında senin için sakladığım küçük bir sürpriz daha var. Şifreyi girip kilidi açtığında ne demek istediğimi göreceksin..."
+      ],
+      letterSignOff: "Seni her şeyden çok seven,",
+      letterSender: "Seni çok seven sevgilin" // İstersen buraya kendi adını (ör. "Furkan") yazabilirsin
+    };
+
+    /* ==========================================================================
+       GERÇEK YILDIZ KATALOĞU (J2000: RA saat, Dec derece, Mag parlaklık)
+       Kasım akşamı Çorum gökyüzünde görünen ~96 gerçek parlak yıldız
+       ========================================================================== */
+    const STAR_CATALOG = [
+      // Auriga (Arabacı) — Capella dahil
+      { id: "capella", name: "Capella", trName: "Capella", constTr: "Arabacı", ra: 5.278155, dec: 45.9980, mag: 0.08, color: "#fff0c4", major: true },
+      { id: "menkalinan", name: "Menkalinan", constTr: "Arabacı", ra: 5.9921, dec: 44.9474, mag: 1.90, color: "#e6f0ff" },
+      { id: "mahasim", name: "Mahasim", constTr: "Arabacı", ra: 5.9951, dec: 37.2126, mag: 2.62, color: "#e8f1ff" },
+      { id: "hassaleh", name: "Hassaleh", constTr: "Arabacı", ra: 4.9499, dec: 33.1661, mag: 2.69, color: "#ffd29b" },
+      { id: "almaaz", name: "Almaaz", constTr: "Arabacı", ra: 5.0328, dec: 43.8233, mag: 3.03, color: "#fff6dc" },
+      { id: "elnath", name: "Elnath", constTr: "Boğa / Arabacı", ra: 5.4382, dec: 28.6075, mag: 1.65, color: "#d4e6ff", major: true },
+
+      // Orion (Avcı)
+      { id: "rigel", name: "Rigel", trName: "Rigel", constTr: "Avcı (Orion)", ra: 5.2423, dec: -8.2016, mag: 0.13, color: "#cde2ff", major: true },
+      { id: "betelgeuse", name: "Betelgeuse", trName: "Betelgeuse", constTr: "Avcı (Orion)", ra: 5.9195, dec: 7.4071, mag: 0.42, color: "#ffb47d", major: true },
+      { id: "bellatrix", name: "Bellatrix", constTr: "Avcı", ra: 5.4188, dec: 6.3497, mag: 1.64, color: "#d0e4ff" },
+      { id: "alnilam", name: "Alnilam", constTr: "Avcı", ra: 5.6036, dec: -1.2019, mag: 1.69, color: "#cde2ff" },
+      { id: "alnitak", name: "Alnitak", constTr: "Avcı", ra: 5.6793, dec: -1.9426, mag: 1.77, color: "#cde2ff" },
+      { id: "saiph", name: "Saiph", constTr: "Avcı", ra: 5.7959, dec: -9.6696, mag: 2.09, color: "#d2e4ff" },
+      { id: "mintaka", name: "Mintaka", constTr: "Avcı", ra: 5.5334, dec: -0.2991, mag: 2.23, color: "#cde2ff" },
+      { id: "meissa", name: "Meissa", constTr: "Avcı", ra: 5.5856, dec: 9.9342, mag: 3.33, color: "#d2e4ff" },
+
+      // Taurus (Boğa)
+      { id: "aldebaran", name: "Aldebaran", trName: "Aldebaran", constTr: "Boğa", ra: 4.5987, dec: 16.5093, mag: 0.86, color: "#ffbd85", major: true },
+      { id: "alcyone", name: "Alcyone (Ülker)", trName: "Ülker (Pleiades)", constTr: "Boğa", ra: 3.7914, dec: 24.1051, mag: 2.87, color: "#cde2ff", major: true },
+      { id: "tianguan", name: "Tianguan", constTr: "Boğa", ra: 5.6274, dec: 21.1425, mag: 3.00, color: "#d0e4ff" },
+      { id: "ain", name: "Ain", constTr: "Boğa", ra: 4.4770, dec: 19.1804, mag: 3.53, color: "#ffd8a4" },
+      { id: "hyadum1", name: "Prima Hyadum", constTr: "Boğa", ra: 4.3299, dec: 15.6276, mag: 3.65, color: "#ffd9a6" },
+      { id: "chamukuy", name: "Chamukuy", constTr: "Boğa", ra: 4.4777, dec: 15.8709, mag: 3.40, color: "#ffdba8" },
+      { id: "lambda_tau", name: "Lambda Tau", constTr: "Boğa", ra: 4.0112, dec: 12.4903, mag: 3.47, color: "#d4e6ff" },
+
+      // Perseus (Kahraman)
+      { id: "mirfak", name: "Mirfak", trName: "Mirfak", constTr: "Kahraman (Perseus)", ra: 3.4054, dec: 49.8612, mag: 1.80, color: "#fff5da", major: true },
+      { id: "algol", name: "Algol", trName: "Algol", constTr: "Kahraman (Perseus)", ra: 3.1361, dec: 40.9556, mag: 2.12, color: "#d6e8ff", major: true },
+      { id: "atik", name: "Atik", constTr: "Kahraman", ra: 3.9029, dec: 31.8836, mag: 2.85, color: "#d0e4ff" },
+      { id: "menkib", name: "Menkib", constTr: "Kahraman", ra: 3.9826, dec: 35.7910, mag: 4.04, color: "#cde2ff" },
+      { id: "delta_per", name: "Delta Per", constTr: "Kahraman", ra: 3.7153, dec: 47.7875, mag: 3.01, color: "#d2e4ff" },
+      { id: "epsilon_per", name: "Epsilon Per", constTr: "Kahraman", ra: 3.9644, dec: 40.0102, mag: 2.89, color: "#cde2ff" },
+      { id: "gamma_per", name: "Gamma Per", constTr: "Kahraman", ra: 3.0799, dec: 53.5064, mag: 2.91, color: "#ffe5b8" },
+      { id: "eta_per", name: "Miram", constTr: "Kahraman", ra: 2.8450, dec: 55.8955, mag: 3.77, color: "#ffc78f" },
+
+      // Cassiopeia (Kraliçe)
+      { id: "schedar", name: "Schedar", trName: "Schedar", constTr: "Kraliçe", ra: 0.6751, dec: 56.5373, mag: 2.23, color: "#ffd5a0", major: true },
+      { id: "caph", name: "Caph", constTr: "Kraliçe", ra: 0.1529, dec: 59.1498, mag: 2.27, color: "#fff6df" },
+      { id: "navi", name: "Navi", constTr: "Kraliçe", ra: 0.9451, dec: 60.7167, mag: 2.47, color: "#cde2ff" },
+      { id: "ruchbah", name: "Ruchbah", constTr: "Kraliçe", ra: 1.4303, dec: 60.2353, mag: 2.68, color: "#e6f0ff" },
+      { id: "segin", name: "Segin", constTr: "Kraliçe", ra: 1.9066, dec: 63.6701, mag: 3.37, color: "#d4e6ff" },
+
+      // Ursa Minor (Küçük Ayı) & Polaris
+      { id: "polaris", name: "Polaris", trName: "Kutup Yıldızı (Polaris)", constTr: "Küçük Ayı", ra: 2.5303, dec: 89.2641, mag: 1.98, color: "#fff5db", major: true },
+      { id: "kochab", name: "Kochab", constTr: "Küçük Ayı", ra: 14.8451, dec: 74.1555, mag: 2.08, color: "#ffc790" },
+      { id: "pherkad", name: "Pherkad", constTr: "Küçük Ayı", ra: 15.3455, dec: 71.8340, mag: 3.05, color: "#e6f0ff" },
+      { id: "yildun", name: "Yildun", constTr: "Küçük Ayı", ra: 17.5369, dec: 86.5864, mag: 4.35, color: "#e6f0ff" },
+      { id: "urodelus", name: "Epsilon UMi", constTr: "Küçük Ayı", ra: 16.7662, dec: 82.0372, mag: 4.23, color: "#fff0c9" },
+      { id: "ahfa", name: "Zeta UMi", constTr: "Küçük Ayı", ra: 15.7343, dec: 77.7945, mag: 4.32, color: "#e6f0ff" },
+      { id: "anwar", name: "Eta UMi", constTr: "Küçük Ayı", ra: 16.2918, dec: 75.7553, mag: 4.95, color: "#fff7e2" },
+
+      // Ursa Major (Büyük Ayı)
+      { id: "alioth", name: "Alioth", constTr: "Büyük Ayı", ra: 12.9005, dec: 55.9598, mag: 1.77, color: "#e8f1ff" },
+      { id: "dubhe", name: "Dubhe", trName: "Dubhe", constTr: "Büyük Ayı", ra: 11.0621, dec: 61.7510, mag: 1.79, color: "#ffdba6", major: true },
+      { id: "alkaid", name: "Alkaid", constTr: "Büyük Ayı", ra: 13.7923, dec: 49.3133, mag: 1.86, color: "#d4e6ff" },
+      { id: "mizar", name: "Mizar", constTr: "Büyük Ayı", ra: 13.3988, dec: 54.9254, mag: 2.23, color: "#e8f1ff" },
+      { id: "merak", name: "Merak", constTr: "Büyük Ayı", ra: 11.0307, dec: 56.3824, mag: 2.37, color: "#e8f1ff" },
+      { id: "phecda", name: "Phecda", constTr: "Büyük Ayı", ra: 11.8972, dec: 53.6948, mag: 2.44, color: "#e8f1ff" },
+      { id: "megrez", name: "Megrez", constTr: "Büyük Ayı", ra: 12.2570, dec: 57.0326, mag: 3.31, color: "#e8f1ff" },
+
+      // Cygnus (Kuğu)
+      { id: "deneb", name: "Deneb", trName: "Deneb", constTr: "Kuğu", ra: 20.6905, dec: 45.2803, mag: 1.25, color: "#e6f0ff", major: true },
+      { id: "sadr", name: "Sadr", constTr: "Kuğu", ra: 20.3705, dec: 40.2567, mag: 2.20, color: "#fff6dc" },
+      { id: "gienah_cyg", name: "Gienah", constTr: "Kuğu", ra: 20.7702, dec: 33.9703, mag: 2.46, color: "#ffdca8" },
+      { id: "fawaris", name: "Fawaris", constTr: "Kuğu", ra: 19.7496, dec: 45.1308, mag: 2.87, color: "#e8f1ff" },
+      { id: "albireo", name: "Albireo", constTr: "Kuğu", ra: 19.5126, dec: 27.9597, mag: 3.08, color: "#ffd8a4" },
+
+      // Lyra (Çalgı)
+      { id: "vega", name: "Vega", trName: "Vega", constTr: "Çalgı (Lyra)", ra: 18.6156, dec: 38.7837, mag: 0.03, color: "#d8e9ff", major: true },
+      { id: "sheliak", name: "Sheliak", constTr: "Çalgı", ra: 18.8347, dec: 33.3627, mag: 3.45, color: "#d8e8ff" },
+      { id: "sulafat", name: "Sulafat", constTr: "Çalgı", ra: 18.9824, dec: 32.6896, mag: 3.24, color: "#d8e8ff" },
+      { id: "delta_lyr", name: "Delta Lyr", constTr: "Çalgı", ra: 18.9082, dec: 36.8986, mag: 4.22, color: "#ffb884" },
+      { id: "zeta_lyr", name: "Zeta Lyr", constTr: "Çalgı", ra: 18.7462, dec: 37.6051, mag: 4.36, color: "#e8f1ff" },
+
+      // Aquila (Kartal)
+      { id: "altair", name: "Altair", trName: "Altair", constTr: "Kartal", ra: 19.8464, dec: 8.8683, mag: 0.76, color: "#e8f1ff", major: true },
+      { id: "tarazed", name: "Tarazed", constTr: "Kartal", ra: 19.7710, dec: 10.6133, mag: 2.72, color: "#ffd29d" },
+      { id: "alshain", name: "Alshain", constTr: "Kartal", ra: 19.9219, dec: 6.4068, mag: 3.71, color: "#ffdca8" },
+      { id: "theta_aql", name: "Theta Aql", constTr: "Kartal", ra: 20.1884, dec: -0.8215, mag: 3.23, color: "#e8f1ff" },
+      { id: "okab", name: "Okab", constTr: "Kartal", ra: 19.0902, dec: 13.8635, mag: 2.99, color: "#e8f1ff" },
+
+      // Pegasus (Kanatlı At) & Andromeda
+      { id: "enif", name: "Enif", constTr: "Kanatlı At", ra: 21.7364, dec: 9.8750, mag: 2.39, color: "#ffd099" },
+      { id: "scheat", name: "Scheat", constTr: "Kanatlı At", ra: 23.0629, dec: 28.0828, mag: 2.42, color: "#ffb884" },
+      { id: "markab", name: "Markab", trName: "Markab", constTr: "Kanatlı At", ra: 23.0793, dec: 15.2053, mag: 2.49, color: "#e8f1ff", major: true },
+      { id: "algenib", name: "Algenib", constTr: "Kanatlı At", ra: 0.2206, dec: 15.1836, mag: 2.83, color: "#cfe2ff" },
+      { id: "homam", name: "Homam", constTr: "Kanatlı At", ra: 22.6912, dec: 10.8314, mag: 3.41, color: "#d6e8ff" },
+      { id: "matar", name: "Matar", constTr: "Kanatlı At", ra: 22.7167, dec: 30.2212, mag: 2.93, color: "#ffe3b5" },
+      { id: "alpheratz", name: "Alpheratz", trName: "Alpheratz", constTr: "Andromeda", ra: 0.1398, dec: 29.0904, mag: 2.06, color: "#d4e6ff", major: true },
+      { id: "mirach", name: "Mirach", trName: "Mirach", constTr: "Andromeda", ra: 1.1622, dec: 35.6206, mag: 2.05, color: "#ffb884", major: true },
+      { id: "almach", name: "Almach", constTr: "Andromeda", ra: 2.0650, dec: 42.3297, mag: 2.17, color: "#ffd29d" },
+      { id: "delta_and", name: "Delta And", constTr: "Andromeda", ra: 0.6554, dec: 30.8610, mag: 3.27, color: "#ffd29b" },
+
+      // Aries (Koç) & Triangulum (Üçgen)
+      { id: "hamal", name: "Hamal", trName: "Hamal", constTr: "Koç", ra: 2.1196, dec: 23.4624, mag: 2.00, color: "#ffd29b", major: true },
+      { id: "sheratan", name: "Sheratan", constTr: "Koç", ra: 1.9107, dec: 20.8080, mag: 2.64, color: "#e8f1ff" },
+      { id: "mesarthim", name: "Mesarthim", constTr: "Koç", ra: 1.8920, dec: 19.2944, mag: 3.88, color: "#e8f1ff" },
+      { id: "mothallah", name: "Mothallah", constTr: "Üçgen", ra: 1.8847, dec: 29.5788, mag: 3.42, color: "#fff6dc" },
+      { id: "beta_tri", name: "Beta Tri", constTr: "Üçgen", ra: 2.1591, dec: 34.9873, mag: 3.00, color: "#e8f1ff" },
+      { id: "gamma_tri", name: "Gamma Tri", constTr: "Üçgen", ra: 2.2885, dec: 33.8472, mag: 4.03, color: "#e8f1ff" },
+
+      // Gemini (İkizler)
+      { id: "pollux", name: "Pollux", trName: "Pollux", constTr: "İkizler", ra: 7.7553, dec: 28.0262, mag: 1.14, color: "#ffd8a6", major: true },
+      { id: "castor", name: "Castor", trName: "Castor", constTr: "İkizler", ra: 7.5767, dec: 31.8883, mag: 1.58, color: "#e8f1ff", major: true },
+      { id: "alhena", name: "Alhena", constTr: "İkizler", ra: 6.6285, dec: 16.3993, mag: 1.93, color: "#e8f1ff" },
+      { id: "tejat", name: "Tejat", constTr: "İkizler", ra: 6.3827, dec: 22.5136, mag: 2.88, color: "#ffb884" },
+      { id: "mebsuta", name: "Mebsuta", constTr: "İkizler", ra: 6.7322, dec: 25.1311, mag: 2.98, color: "#ffd9a8" },
+      { id: "wasat", name: "Wasat", constTr: "İkizler", ra: 7.3353, dec: 21.9823, mag: 3.53, color: "#fff7e2" },
+
+      // Cepheus (Kral)
+      { id: "alderamin", name: "Alderamin", constTr: "Kral (Cepheus)", ra: 21.3096, dec: 62.5856, mag: 2.45, color: "#e8f1ff" },
+      { id: "alfirk", name: "Alfirk", constTr: "Kral", ra: 21.4778, dec: 70.5607, mag: 3.23, color: "#cde2ff" },
+      { id: "errai", name: "Errai", constTr: "Kral", ra: 23.6559, dec: 77.6323, mag: 3.21, color: "#ffd6a0" },
+      { id: "zeta_cep", name: "Zeta Cep", constTr: "Kral", ra: 22.1812, dec: 58.2013, mag: 3.39, color: "#ffc994" },
+      { id: "iota_cep", name: "Iota Cep", constTr: "Kral", ra: 22.8278, dec: 66.2004, mag: 3.50, color: "#ffd6a0" },
+
+      // Draco (Ejderha)
+      { id: "eltanin", name: "Eltanin", constTr: "Ejderha", ra: 17.9434, dec: 51.4889, mag: 2.24, color: "#ffc28c" },
+      { id: "rastaban", name: "Rastaban", constTr: "Ejderha", ra: 17.5072, dec: 52.3014, mag: 2.79, color: "#ffdda8" },
+      { id: "aldhibah", name: "Athebyne", constTr: "Ejderha", ra: 16.3997, dec: 61.5142, mag: 2.73, color: "#ffe0ae" },
+      { id: "thuban", name: "Thuban", constTr: "Ejderha", ra: 14.0731, dec: 64.3758, mag: 3.67, color: "#e8f1ff" },
+      { id: "altais", name: "Altais", constTr: "Ejderha", ra: 19.2094, dec: 67.6615, mag: 3.07, color: "#ffe0ae" },
+      { id: "giausar", name: "Giausar", constTr: "Ejderha", ra: 11.5236, dec: 69.3311, mag: 3.82, color: "#ffb884" },
+
+      // Güney / Ufuk Yakını Parlak Yıldızlar
+      { id: "fomalhaut", name: "Fomalhaut", trName: "Fomalhaut", constTr: "Güney Balığı", ra: 22.9608, dec: -29.6222, mag: 1.16, color: "#e8f1ff", major: true },
+      { id: "diphda", name: "Diphda", trName: "Diphda", constTr: "Balina", ra: 0.7265, dec: -17.9866, mag: 2.04, color: "#ffdca8" },
+      { id: "menkar", name: "Menkar", constTr: "Balina", ra: 3.0380, dec: 4.0897, mag: 2.54, color: "#ffb884" },
+      { id: "sirius", name: "Sirius", trName: "Sirius", constTr: "Büyük Köpek", ra: 6.7525, dec: -16.7161, mag: -1.46, color: "#cde2ff", major: true },
+      { id: "procyon", name: "Procyon", trName: "Procyon", constTr: "Küçük Köpek", ra: 7.6550, dec: 5.2250, mag: 0.34, color: "#fff7e2", major: true }
+    ];
+
+    /* ==========================================================================
+       TAKIMYILDIZ ÇİZGİ BAĞLANTILARI
+       ========================================================================== */
+    const CONSTELLATION_LINES = [
+      // Auriga (Arabacı)
+      ["capella", "menkalinan"], ["menkalinan", "mahasim"], ["mahasim", "elnath"],
+      ["elnath", "hassaleh"], ["hassaleh", "almaaz"], ["almaaz", "capella"],
+
+      // Orion (Avcı)
+      ["meissa", "betelgeuse"], ["meissa", "bellatrix"], ["betelgeuse", "bellatrix"],
+      ["betelgeuse", "alnitak"], ["bellatrix", "mintaka"],
+      ["mintaka", "alnilam"], ["alnilam", "alnitak"],
+      ["mintaka", "rigel"], ["alnitak", "saiph"], ["rigel", "saiph"],
+
+      // Taurus (Boğa)
+      ["aldebaran", "chamukuy"], ["chamukuy", "hyadum1"], ["hyadum1", "ain"], ["ain", "elnath"],
+      ["aldebaran", "tianguan"], ["hyadum1", "lambda_tau"],
+
+      // Perseus (Kahraman)
+      ["eta_per", "gamma_per"], ["gamma_per", "mirfak"], ["mirfak", "delta_per"],
+      ["delta_per", "epsilon_per"], ["epsilon_per", "menkib"], ["menkib", "atik"],
+      ["mirfak", "algol"],
+
+      // Cassiopeia (Kraliçe)
+      ["caph", "schedar"], ["schedar", "navi"], ["navi", "ruchbah"], ["ruchbah", "segin"],
+
+      // Ursa Minor (Küçük Ayı)
+      ["polaris", "yildun"], ["yildun", "urodelus"], ["urodelus", "ahfa"],
+      ["ahfa", "kochab"], ["kochab", "pherkad"], ["pherkad", "anwar"], ["anwar", "ahfa"],
+
+      // Ursa Major (Büyük Ayı)
+      ["dubhe", "merak"], ["merak", "phecda"], ["phecda", "megrez"], ["megrez", "dubhe"],
+      ["megrez", "alioth"], ["alioth", "mizar"], ["mizar", "alkaid"],
+
+      // Cygnus (Kuğu)
+      ["deneb", "sadr"], ["sadr", "albireo"], ["fawaris", "sadr"], ["sadr", "gienah_cyg"],
+
+      // Lyra (Çalgı)
+      ["vega", "zeta_lyr"], ["vega", "delta_lyr"], ["zeta_lyr", "delta_lyr"],
+      ["zeta_lyr", "sheliak"], ["delta_lyr", "sulafat"], ["sheliak", "sulafat"],
+
+      // Aquila (Kartal)
+      ["tarazed", "altair"], ["altair", "alshain"], ["altair", "theta_aql"], ["altair", "okab"],
+
+      // Pegasus & Andromeda
+      ["markab", "scheat"], ["scheat", "alpheratz"], ["alpheratz", "algenib"], ["algenib", "markab"],
+      ["markab", "homam"], ["homam", "enif"], ["scheat", "matar"],
+      ["alpheratz", "delta_and"], ["delta_and", "mirach"], ["mirach", "almach"],
+
+      // Aries & Triangulum
+      ["hamal", "sheratan"], ["sheratan", "mesarthim"],
+      ["mothallah", "beta_tri"], ["beta_tri", "gamma_tri"], ["gamma_tri", "mothallah"],
+
+      // Gemini (İkizler)
+      ["castor", "pollux"], ["castor", "mebsuta"], ["mebsuta", "tejat"],
+      ["pollux", "wasat"], ["wasat", "alhena"],
+
+      // Cepheus (Kral)
+      ["alderamin", "alfirk"], ["alfirk", "errai"], ["errai", "iota_cep"],
+      ["iota_cep", "zeta_cep"], ["zeta_cep", "alderamin"], ["alfirk", "iota_cep"],
+
+      // Draco (Ejderha)
+      ["eltanin", "rastaban"], ["rastaban", "altais"], ["altais", "aldhibah"],
+      ["aldhibah", "thuban"], ["thuban", "giausar"]
+    ];
+
+    /* ==========================================================================
+       GERÇEK ASTRONOMİ HESAPLAMA MOTORU (SIFIR HARİCİ KÜTÜPHANE)
+       ========================================================================== */
+    const DEG2RAD = Math.PI / 180;
+    const RAD2DEG = 180 / Math.PI;
+
+    function norm360(deg) {
+      return ((deg % 360) + 360) % 360;
+    }
+
+    function clamp(val, min, max) {
+      return Math.max(min, Math.min(max, val));
+    }
+
+    // Doğum tarihini UTC Date nesnesine dönüştür
+    function getBirthUTCDate() {
+      const [y, m, d] = CONFIG.birthDate.split("-").map(Number);
+      const [hh, mm] = CONFIG.birthTime.split(":").map(Number);
+      const utcMs = Date.UTC(y, m - 1, d, hh - CONFIG.birthUtcOffset, mm, 0);
+      return new Date(utcMs);
+    }
+
+    // Julian Date (JD)
+    function toJulianDate(date) {
+      return date.getTime() / 86400000 + 2440587.5;
+    }
+
+    // Greenwich Ortalama Yıldız Zamanı (GMST - derece)
+    function computeGMST(jd) {
+      const d = jd - 2451545.0;
+      const t = d / 36525.0;
+      const gmst =
+        280.46061837 +
+        360.98564736629 * d +
+        0.000387933 * t * t -
+        (t * t * t) / 38710000.0;
+      return norm360(gmst);
+    }
+
+    // Yerel Yıldız Zamanı (LST - derece)
+    function computeLST(date, lonDeg) {
+      return norm360(computeGMST(toJulianDate(date)) + lonDeg);
+    }
+
+    // Ekvatoryal (RA saat, Dec derece) -> Ufuk (Altitüd, Azimut derece)
+    function raDecToAltAz(raHours, decDeg, latDeg, lstDeg) {
+      const haDeg = norm360(lstDeg - raHours * 15.0);
+      const ha = haDeg * DEG2RAD;
+      const dec = decDeg * DEG2RAD;
+      const lat = latDeg * DEG2RAD;
+
+      const sinAlt = Math.sin(dec) * Math.sin(lat) + Math.cos(dec) * Math.cos(lat) * Math.cos(ha);
+      const alt = Math.asin(clamp(sinAlt, -1, 1));
+      const cosAlt = Math.cos(alt);
+
+      let az = 0;
+      if (cosAlt > 1e-6) {
+        const cosAz = (Math.sin(dec) - Math.sin(alt) * Math.sin(lat)) / (cosAlt * Math.cos(lat));
+        az = Math.acos(clamp(cosAz, -1, 1));
+        if (Math.sin(ha) > 0) {
+          az = 2 * Math.PI - az;
+        }
+      }
+
+      return {
+        altitude: alt * RAD2DEG,
+        azimuth: norm360(az * RAD2DEG)
+      };
+    }
+
+    // Azimut değerini Türkçe pusula yönüne çevir
+    function azimuthToTurkishCompass(az) {
+      const labels = [
+        "Kuzey", "Kuzeydoğu", "Doğu", "Güneydoğu",
+        "Güney", "Güneybatı", "Batı", "Kuzeybatı"
+      ];
+      return labels[Math.round(norm360(az) / 45) % 8];
+    }
+
+    /* ==========================================================================
+       BÖLÜM 1: DOĞDUĞU GÜNÜN YILDIZ HARİTASI (25 KASIM 2003, ÇORUM)
+       ========================================================================== */
+    const birthChartState = {
+      projectedStars: [],
+      bgStars: [],
+      milkyWayPoints: [],
+      cssSize: 420,
+      skyR: 170
+    };
+
+    // Stereografik gökyüzü projeksiyonu (Kuzey üstte, Doğu solda — başını kaldırıp bakış)
+    function projectSkyPoint(altDeg, azDeg, skyR) {
+      const safeAlt = clamp(Number(altDeg), -85, 90);
+      const safeAz = Number.isFinite(azDeg) ? azDeg : 0;
+      const zRad = (90 - safeAlt) * DEG2RAD;
+      const r = skyR * Math.tan(zRad / 2);
+      const azRad = safeAz * DEG2RAD;
+      return {
+        x: -r * Math.sin(azRad),
+        y: -r * Math.cos(azRad)
+      };
+    }
+
+    // Doğum anındaki yıldız ve Samanyolu geometrisini bir kez hesapla
+    function prepareBirthChartData() {
+      const birthDate = getBirthUTCDate();
+      const lst = computeLST(birthDate, CONFIG.birthLon);
+
+      // 1. Gerçek katalog yıldızları
+      birthChartState.projectedStars = STAR_CATALOG.map((star, idx) => {
+        const h = raDecToAltAz(star.ra, star.dec, CONFIG.birthLat, lst);
+        return {
+          ...star,
+          alt: h.altitude,
+          az: h.azimuth,
+          twinklePhase: (idx * 1.73) % (Math.PI * 2),
+          twinkleSpeed: 0.015 + (idx % 5) * 0.004
+        };
+      });
+
+      // 2. Deterministik 260 adet arka plan yıldızı (sabit tohum)
+      let seed = 20031125;
+      const rand = () => {
+        seed = (seed * 1664525 + 1013904223) % 4294967296;
+        return seed / 4294967296;
+      };
+      birthChartState.bgStars = Array.from({ length: 260 }, () => ({
+        angle: rand() * Math.PI * 2,
+        distNorm: Math.sqrt(rand()) * 0.985,
+        radius: 0.35 + rand() * 0.85,
+        alpha: 0.16 + rand() * 0.44
+      }));
+
+      // 3. Yaklaşık galaktik düzlem (Samanyolu bandı) noktaları
+      const mwPoints = [];
+      for (let i = 0; i < 64; i++) {
+        const l = (i / 64) * 360 * DEG2RAD;
+        // Galaktik ekvator (b=0) -> Ekvatoryal (J2000: NGP RA=192.86°, Dec=27.13°)
+        const ngpDec = 27.12825 * DEG2RAD;
+        const ngpRa = 192.85948 * DEG2RAD;
+        const l0 = 32.93192 * DEG2RAD;
+        const sinDec = Math.cos(ngpDec) * Math.sin(l - l0);
+        const dec = Math.asin(clamp(sinDec, -1, 1));
+        const y = Math.cos(l - l0);
+        const x = -Math.sin(ngpDec) * Math.sin(l - l0);
+        const ra = norm360((Math.atan2(y, x) + ngpRa) * RAD2DEG) / 15.0;
+        const h = raDecToAltAz(ra, dec * RAD2DEG, CONFIG.birthLat, lst);
+        if (h.altitude > -5) {
+          mwPoints.push({
+            alt: h.altitude,
+            az: h.azimuth
+          });
+        }
+      }
+      birthChartState.milkyWayPoints = mwPoints;
+    }
+
+    function drawBirthStarChart(timestamp) {
+      const canvas = document.getElementById("birth-sky-canvas");
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+      const stage = document.getElementById("chart-stage");
+      const cssSize = stage.clientWidth || 380;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2.5);
+
+      if (canvas.width !== Math.round(cssSize * dpr) || canvas.height !== Math.round(cssSize * dpr)) {
+        canvas.width = Math.round(cssSize * dpr);
+        canvas.height = Math.round(cssSize * dpr);
+      }
+
+      birthChartState.cssSize = cssSize;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, cssSize, cssSize);
+
+      const cx = cssSize / 2;
+      const cy = cssSize / 2;
+      const outerR = cssSize * 0.482;
+      const midR = cssSize * 0.452;
+      const skyR = cssSize * 0.408;
+      birthChartState.skyR = skyR;
+
+      // Dış gökyüzü arka planı
+      const bgGrad = ctx.createRadialGradient(cx, cy, skyR * 0.05, cx, cy, outerR);
+      bgGrad.addColorStop(0, "#101b3d");
+      bgGrad.addColorStop(0.62, "#070d22");
+      bgGrad.addColorStop(1, "#040713");
+
+      ctx.beginPath();
+      ctx.arc(cx, cy, outerR, 0, Math.PI * 2);
+      ctx.fillStyle = bgGrad;
+      ctx.fill();
+
+      // Eş merkezli altın çerçeve halkaları
+      ctx.beginPath();
+      ctx.arc(cx, cy, outerR - 1, 0, Math.PI * 2);
+      ctx.strokeStyle = "rgba(232, 200, 136, 0.72)";
+      ctx.lineWidth = 1.4;
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.arc(cx, cy, midR, 0, Math.PI * 2);
+      ctx.strokeStyle = "rgba(232, 200, 136, 0.22)";
+      ctx.lineWidth = 0.8;
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.arc(cx, cy, skyR, 0, Math.PI * 2);
+      ctx.strokeStyle = "rgba(232, 200, 136, 0.5)";
+      ctx.lineWidth = 1;
+      ctx.stroke();
+
+      // Derece çentikleri (her 5 derecede bir)
+      for (let deg = 0; deg < 360; deg += 5) {
+        const rad = deg * DEG2RAD;
+        const isMajor = deg % 30 === 0;
+        const isMid = deg % 15 === 0;
+        const rStart = skyR;
+        const rEnd = skyR + (isMajor ? 8 : isMid ? 5.5 : 3);
+        ctx.beginPath();
+        ctx.moveTo(cx + Math.cos(rad) * rStart, cy + Math.sin(rad) * rStart);
+        ctx.lineTo(cx + Math.cos(rad) * rEnd, cy + Math.sin(rad) * rEnd);
+        ctx.strokeStyle = isMajor ? "rgba(232, 200, 136, 0.7)" : "rgba(232, 200, 136, 0.26)";
+        ctx.lineWidth = isMajor ? 1.15 : 0.7;
+        ctx.stroke();
+      }
+
+      // Ana yön harfleri (K, G, D, B)
+      const labelR = (midR + skyR) / 2 + 2;
+      ctx.font = `600 ${Math.max(11, Math.round(cssSize * 0.029))}px 'Plus Jakarta Sans', sans-serif`;
+      ctx.fillStyle = "#e8c888";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText("K", cx, cy - labelR);
+      ctx.fillText("G", cx, cy + labelR);
+      ctx.fillText("D", cx - labelR, cy);
+      ctx.fillText("B", cx + labelR, cy);
+
+      // Gökyüzü dairesini kırp
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(cx, cy, skyR - 0.8, 0, Math.PI * 2);
+      ctx.clip();
+
+      // İnce Samanyolu bandı (yumuşak ışıltılı bulutsu şerit)
+      for (const pt of birthChartState.milkyWayPoints) {
+        const p = projectSkyPoint(Math.max(0, pt.alt), pt.az, skyR);
+        const px = cx + p.x;
+        const py = cy + p.y;
+        const puffR = skyR * 0.19;
+        if (!Number.isFinite(px) || !Number.isFinite(py) || !Number.isFinite(puffR) || puffR <= 0) {
+          continue;
+        }
+        const mwGrad = ctx.createRadialGradient(px, py, 0, px, py, puffR);
+        mwGrad.addColorStop(0, "rgba(182, 206, 255, 0.038)");
+        mwGrad.addColorStop(0.55, "rgba(232, 200, 136, 0.015)");
+        mwGrad.addColorStop(1, "rgba(182, 206, 255, 0)");
+        ctx.beginPath();
+        ctx.arc(px, py, puffR, 0, Math.PI * 2);
+        ctx.fillStyle = mwGrad;
+        ctx.fill();
+      }
+
+      // Yükseklik referans çemberleri (30° ve 60°) ve eksen çizgileri
+      ctx.strokeStyle = "rgba(232, 200, 136, 0.11)";
+      ctx.lineWidth = 0.75;
+      [30, 60].forEach((altDeg) => {
+        const p = projectSkyPoint(altDeg, 0, skyR);
+        ctx.beginPath();
+        ctx.arc(cx, cy, Math.abs(p.y), 0, Math.PI * 2);
+        ctx.stroke();
+      });
+
+      ctx.beginPath();
+      ctx.moveTo(cx - skyR, cy);
+      ctx.lineTo(cx + skyR, cy);
+      ctx.moveTo(cx, cy - skyR);
+      ctx.lineTo(cx, cy + skyR);
+      ctx.stroke();
+
+      // Arka plan ince yıldız tozu
+      for (const bs of birthChartState.bgStars) {
+        const sx = cx + Math.cos(bs.angle) * bs.distNorm * skyR;
+        const sy = cy + Math.sin(bs.angle) * bs.distNorm * skyR;
+        ctx.beginPath();
+        ctx.arc(sx, sy, bs.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(240, 242, 250, ${bs.alpha})`;
+        ctx.fill();
+      }
+
+      // Konumları hızlı haritada tut
+      const screenMap = new Map();
+      for (const star of birthChartState.projectedStars) {
+        const pos = projectSkyPoint(star.alt, star.az, skyR);
+        star.px = cx + pos.x;
+        star.py = cy + pos.y;
+        screenMap.set(star.id, star);
+      }
+
+      // Takımyıldız çizgileri
+      ctx.strokeStyle = "rgba(186, 210, 255, 0.34)";
+      ctx.lineWidth = 0.85;
+      for (const [idA, idB] of CONSTELLATION_LINES) {
+        const a = screenMap.get(idA);
+        const b = screenMap.get(idB);
+        if (!a || !b) continue;
+        if (a.alt > -3 && b.alt > -3) {
+          ctx.beginPath();
+          ctx.moveTo(a.px, a.py);
+          ctx.lineTo(b.px, b.py);
+          ctx.stroke();
+        }
+      }
+
+      // Gerçek katalog yıldızlarını çiz (sürprizi bozacak hiçbir özel vurgu yapılmaz)
+      const timeSec = (timestamp || 0) * 0.001;
+      for (const star of birthChartState.projectedStars) {
+        if (star.alt <= 0) continue;
+
+        const baseRadius = clamp(3.4 - star.mag * 0.62, 0.9, 3.8);
+        const isBright = star.mag < 1.3;
+        const twinkle = isBright
+          ? 0.82 + 0.18 * Math.sin(timeSec * 2.1 + star.twinklePhase)
+          : 1;
+
+        const haloR = baseRadius * (isBright ? 4.4 : 2.8) * twinkle;
+        if (!Number.isFinite(star.px) || !Number.isFinite(star.py) || !Number.isFinite(haloR) || haloR <= 0) {
+          continue;
+        }
+        const halo = ctx.createRadialGradient(star.px, star.py, 0, star.px, star.py, haloR);
+        halo.addColorStop(0, star.color);
+        halo.addColorStop(0.42, isBright ? "rgba(232, 200, 136, 0.24)" : "rgba(215, 228, 255, 0.16)");
+        halo.addColorStop(1, "rgba(215, 228, 255, 0)");
+
+        ctx.beginPath();
+        ctx.arc(star.px, star.py, haloR, 0, Math.PI * 2);
+        ctx.fillStyle = halo;
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(star.px, star.py, baseRadius * (0.94 + 0.06 * twinkle), 0, Math.PI * 2);
+        ctx.fillStyle = "#ffffff";
+        ctx.fill();
+
+        // Çok parlak yıldızlarda ince 4 ışınlı parıltı
+        if (star.mag < 0.9) {
+          const rayLen = baseRadius * 2.8 * twinkle;
+          ctx.strokeStyle = "rgba(246, 226, 179, 0.52)";
+          ctx.lineWidth = 0.7;
+          ctx.beginPath();
+          ctx.moveTo(star.px - rayLen, star.py);
+          ctx.lineTo(star.px + rayLen, star.py);
+          ctx.moveTo(star.px, star.py - rayLen);
+          ctx.lineTo(star.px, star.py + rayLen);
+          ctx.stroke();
+        }
+      }
+
+      ctx.restore();
+    }
+
+    // Harita üzerinde hover / dokunma ile yıldız adı gösterme
+    function setupBirthChartTooltips() {
+      const stage = document.getElementById("chart-stage");
+      const tooltip = document.getElementById("star-tooltip");
+      const nameEl = document.getElementById("tooltip-name");
+      const constEl = document.getElementById("tooltip-constellation");
+
+      const inspectPoint = (clientX, clientY) => {
+        const rect = stage.getBoundingClientRect();
+        const x = clientX - rect.left;
+        const y = clientY - rect.top;
+
+        let closest = null;
+        let minDist = 20;
+        for (const star of birthChartState.projectedStars) {
+          if (star.alt <= 0 || !star.major) continue;
+          const d = Math.hypot(star.px - x, star.py - y);
+          if (d < minDist) {
+            minDist = d;
+            closest = star;
+          }
+        }
+
+        if (closest) {
+          nameEl.textContent = closest.trName || closest.name;
+          constEl.textContent = `${closest.constTr} • Yükseklik ${Math.round(closest.alt)}°`;
+          tooltip.style.left = `${clamp(closest.px, 70, rect.width - 70)}px`;
+          tooltip.style.top = `${Math.max(46, closest.py)}px`;
+          tooltip.classList.add("visible");
+        } else {
+          tooltip.classList.remove("visible");
+        }
+      };
+
+      stage.addEventListener("mousemove", (e) => inspectPoint(e.clientX, e.clientY));
+      stage.addEventListener("mouseleave", () => tooltip.classList.remove("visible"));
+      stage.addEventListener("click", (e) => inspectPoint(e.clientX, e.clientY));
+    }
+
+    /* ==========================================================================
+       SAYFA İÇERİĞİNİ DOLDURMA & KAYDIRMA ANİMASYONLARI
+       ========================================================================== */
+    function populatePageFromConfig() {
+      document.title = `${CONFIG.recipientName} — 25 Kasım 2003`;
+      document.getElementById("hero-recipient-title").textContent = CONFIG.recipientName;
+      document.getElementById("hero-subtitle-text").textContent = `25 Kasım 2003 • Çorum • Doğduğun Gece Gökyüzü`;
+      document.getElementById("chart-recipient-name").textContent = CONFIG.recipientName.toLocaleUpperCase("tr-TR");
+      document.getElementById("chart-coords-caption").textContent =
+        `${CONFIG.birthLat.toFixed(4)}° K, ${CONFIG.birthLon.toFixed(4)}° D • 25.11.2003`;
+
+      // Doğum günü notu
+      document.getElementById("letter-heading").textContent = CONFIG.letterTitle;
+      const bodyEl = document.getElementById("letter-body-container");
+      bodyEl.innerHTML = "";
+      CONFIG.letterParagraphs.forEach((text) => {
+        const p = document.createElement("p");
+        p.className = "reveal-item";
+        p.textContent = text;
+        bodyEl.appendChild(p);
+      });
+      document.getElementById("letter-signoff-text").textContent = CONFIG.letterSignOff;
+      document.getElementById("letter-sender-text").textContent = CONFIG.letterSender;
+
+      // Kilit açıldıktan sonraki sürpriz metinleri
+      document.getElementById("reveal-official-name").textContent = CONFIG.starOfficialName.toLocaleUpperCase("tr-TR");
+      document.getElementById("reveal-given-name").textContent = `✦ ${CONFIG.starGivenName} ✦`;
+      document.getElementById("reveal-constellation").textContent = CONFIG.starConstellation;
+      document.getElementById("ar-header-chip").textContent = `✦ ${CONFIG.starGivenName.toLocaleUpperCase("tr-TR")} (CAPELLA)`;
+      document.getElementById("ar-locked-title").textContent = `✦ ${CONFIG.starGivenName} ✦`;
+      document.getElementById("ar-locked-subtitle").textContent = `Capella • ${CONFIG.starConstellation}`;
+
+      // Kaydırma animasyonu (IntersectionObserver)
+      const revealEls = document.querySelectorAll(".reveal-item");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.14, rootMargin: "0px 0px -24px 0px" }
+      );
+      revealEls.forEach((el) => observer.observe(el));
+    }
+
+    function showToast(msg) {
+      const box = document.getElementById("toast-box");
+      box.textContent = msg;
+      box.classList.add("show");
+      clearTimeout(box._timer);
+      box._timer = setTimeout(() => box.classList.remove("show"), 3600);
+    }
+
+    /* ==========================================================================
+       BÖLÜM 3: ŞİFRE KONTROLÜ & CANLI CAPELLA DURUMU
+       ========================================================================== */
+    const observerLocation = {
+      lat: CONFIG.defaultObserverLat,
+      lon: CONFIG.defaultObserverLon
+    };
+
+    function getLiveCapellaHoriz() {
+      const lst = computeLST(new Date(), observerLocation.lon);
+      return raDecToAltAz(CONFIG.starRAHours, CONFIG.starDecDeg, observerLocation.lat, lst);
+    }
+
+    function updateUnlockedCapellaCard() {
+      const h = getLiveCapellaHoriz();
+      const compass = azimuthToTurkishCompass(h.azimuth);
+      document.getElementById("live-capella-az").textContent = `${Math.round(h.azimuth)}° ${compass}`;
+      document.getElementById("live-capella-alt").textContent = `${h.altitude >= 0 ? "+" : ""}${h.altitude.toFixed(1)}°`;
+
+      const stateEl = document.getElementById("live-capella-state");
+      if (h.altitude >= 5) {
+        stateEl.textContent = "Şu An Gökyüzünde ✦";
+        stateEl.classList.add("is-up");
+      } else if (h.altitude >= 0) {
+        stateEl.textContent = "Ufuk Çizgisinde";
+        stateEl.classList.add("is-up");
+      } else {
+        stateEl.textContent = "Ufuk Altında";
+        stateEl.classList.remove("is-up");
+      }
+    }
+
+    // Şifre doğrulama
+    document.getElementById("surprise-password-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const input = document.getElementById("surprise-password-input");
+      const errEl = document.getElementById("gate-error-msg");
+      const val = input.value.trim();
+
+      if (val.toLocaleLowerCase("tr-TR") === String(CONFIG.password).trim().toLocaleLowerCase("tr-TR")) {
+        errEl.textContent = "";
+        document.getElementById("surprise-locked-view").style.display = "none";
+        document.getElementById("surprise-unlocked-view").classList.add("is-unlocked");
+
+        // Üst menüdeki kilidi açık göster
+        const navBtn = document.getElementById("nav-surprise-btn");
+        navBtn.innerHTML = `<span aria-hidden="true">✦</span><span>Sürpriz</span>`;
+
+        // Konum bilgisi varsa arka planda güncelle (engellemeden)
+        if ("geolocation" in navigator) {
+          navigator.geolocation.getCurrentPosition(
+            (pos) => {
+              observerLocation.lat = pos.coords.latitude;
+              observerLocation.lon = pos.coords.longitude;
+              updateUnlockedCapellaCard();
+            },
+            () => {},
+            { enableHighAccuracy: false, timeout: 4500 }
+          );
+        }
+
+        updateUnlockedCapellaCard();
+        setInterval(updateUnlockedCapellaCard, 10000);
+      } else {
+        errEl.textContent = "Şifre doğru değil, tekrar dene.";
+        input.classList.remove("shake-x");
+        void input.offsetWidth;
+        input.classList.add("shake-x");
+        input.focus();
+      }
+    });
+
+    // Şifre göster / gizle
+    document.getElementById("toggle-password-eye").addEventListener("click", () => {
+      const input = document.getElementById("surprise-password-input");
+      input.type = input.type === "password" ? "text" : "password";
+    });
+
+    /* ==========================================================================
+       TAM EKRAN AR CAPELLA BULUCU (iOS SAFARI & ANDROID CHROME UYUMLU)
+       ========================================================================== */
+    const AURIGA_REF_IDS = ["menkalinan", "mahasim", "elnath", "hassaleh", "almaaz"];
+    const AURIGA_REF_STARS = STAR_CATALOG.filter((s) => AURIGA_REF_IDS.includes(s.id));
+
+    const arEngine = {
+      active: false,
+      testMode: false,
+      stream: null,
+      rafId: null,
+      // Yumuşatılmış kamera bakış yönü (Azimut 0-360, Yükseklik -90..+90)
+      camAz: 45,
+      camAlt: 35,
+      sinAz: Math.sin(45 * DEG2RAD),
+      cosAz: Math.cos(45 * DEG2RAD),
+      hasSensorData: false,
+      compassOffset: 0,
+      // Test modu dokunma/fare sürükleme durumu
+      dragging: false,
+      lastX: 0,
+      lastY: 0,
+      // Test modu arka plan yıldızları (3D birim vektörler)
+      simStars: []
+    };
+
+    // Test modu için gökyüzü küresi üzerinde sabit arka plan yıldızları oluştur
+    function buildSimStars() {
+      let s = 918273;
+      const r = () => {
+        s = (s * 1664525 + 1013904223) % 4294967296;
+        return s / 4294967296;
+      };
+      arEngine.simStars = Array.from({ length: 240 }, () => {
+        const az = r() * 360 * DEG2RAD;
+        const alt = (Math.asin(r() * 0.96) * RAD2DEG) * DEG2RAD; // Ufuk üstü dağılım
+        return {
+          x: Math.cos(alt) * Math.sin(az),
+          y: Math.cos(alt) * Math.cos(az),
+          z: Math.sin(alt),
+          size: 0.7 + r() * 1.4,
+          alpha: 0.25 + r() * 0.55
+        };
+      });
+    }
+
+    // (Azimut, Yükseklik) -> ENU 3D birim vektörü (X: Doğu, Y: Kuzey, Z: Yukarı)
+    function altAzToENU(altDeg, azDeg) {
+      const alt = altDeg * DEG2RAD;
+      const az = azDeg * DEG2RAD;
+      const cAlt = Math.cos(alt);
+      return {
+        x: cAlt * Math.sin(az),
+        y: cAlt * Math.cos(az),
+        z: Math.sin(alt)
+      };
+    }
+
+    // Cihaz pusula & eğim sensörü işleyici (3D rotasyon matrisi ile arka kamera vektörü)
+    function onDeviceOrientation(event) {
+      if (!arEngine.active || arEngine.testMode) return;
+
+      const hasBeta = typeof event.beta === "number" && event.beta !== null;
+      const hasGamma = typeof event.gamma === "number" && event.gamma !== null;
+      if (!hasBeta || !hasGamma) return;
+
+      const b = event.beta * DEG2RAD;
+      const g = event.gamma * DEG2RAD;
+
+      // Arka kamera vektörü (0, 0, -1), Rz(alpha)*Rx(beta)*Ry(gamma) ile ENU düzlemine taşınır:
+      // worldZ (Yukarı) = -cos(beta) * cos(gamma)
+      // Telefon dik tutulup ekran göz hizasında yukarı eğildikçe beta 90° -> 180° gider ve worldZ 0 -> +1 olur.
+      const worldZ = clamp(-Math.cos(b) * Math.cos(g), -1, 1);
+      const measuredAlt = Math.asin(worldZ) * RAD2DEG;
+
+      let measuredAz = null;
+
+      // iOS Safari: webkitCompassHeading doğrudan manyetik kuzey açısını verir
+      if (typeof event.webkitCompassHeading === "number" && !Number.isNaN(event.webkitCompassHeading)) {
+        const screenAngle =
+          (window.screen && window.screen.orientation && window.screen.orientation.angle) ||
+          window.orientation ||
+          0;
+        measuredAz = norm360(event.webkitCompassHeading + screenAngle);
+      } else if (typeof event.alpha === "number" && event.alpha !== null) {
+        // Android (tercihen deviceorientationabsolute): tam 3D rotasyon matrisi ile yüksek açıda bile doğru azimut
+        const a = event.alpha * DEG2RAD;
+        const cA = Math.cos(a), sA = Math.sin(a);
+        const sB = Math.sin(b);
+        const cG = Math.cos(g), sG = Math.sin(g);
+
+        const worldX = -cA * sG - sA * sB * cG; // Doğu
+        const worldY = -sA * sG + cA * sB * cG; // Kuzey
+        if (Math.hypot(worldX, worldY) > 0.05) {
+          measuredAz = norm360(Math.atan2(worldX, worldY) * RAD2DEG);
+        }
+      }
+
+      if (measuredAz !== null) {
+        const azRad = measuredAz * DEG2RAD;
+        if (!arEngine.hasSensorData) {
+          arEngine.sinAz = Math.sin(azRad);
+          arEngine.cosAz = Math.cos(azRad);
+          arEngine.camAz = measuredAz;
+          arEngine.camAlt = measuredAlt;
+          arEngine.hasSensorData = true;
+        } else {
+          // Yumuşak dairesel düşük geçiren filtre (titremeyi ve 0°/360° sıçramasını önler)
+          const k = 0.16;
+          arEngine.sinAz = arEngine.sinAz * (1 - k) + Math.sin(azRad) * k;
+          arEngine.cosAz = arEngine.cosAz * (1 - k) + Math.cos(azRad) * k;
+          arEngine.camAz = norm360(Math.atan2(arEngine.sinAz, arEngine.cosAz) * RAD2DEG);
+          arEngine.camAlt = arEngine.camAlt * (1 - k) + measuredAlt * k;
+        }
+      }
+    }
+
+    function onAbsoluteOrientation(event) {
+      if (event.absolute === true || typeof event.alpha === "number") {
+        arEngine._receivedAbsolute = true;
+        onDeviceOrientation(event);
+      }
+    }
+
+    function onFallbackOrientation(event) {
+      if (arEngine._receivedAbsolute && typeof event.webkitCompassHeading !== "number") return;
+      onDeviceOrientation(event);
+    }
+
+    // Canlı Kamera + AR Başlat
+    document.getElementById("open-live-ar-btn").addEventListener("click", async () => {
+      // iOS 13+ Hareket/Pusula izni mutlaka kullanıcı tıklaması içinde istenmeli
+      if (
+        typeof DeviceOrientationEvent !== "undefined" &&
+        typeof DeviceOrientationEvent.requestPermission === "function"
+      ) {
+        try {
+          const perm = await DeviceOrientationEvent.requestPermission();
+          if (perm !== "granted") {
+            showToast("Pusula izni verilmedi. Ekranı sürükleyerek veya Test Moduyla da bakabilirsin.");
+          }
+        } catch (err) {
+          showToast("Pusula sensörü izni alınamadı.");
+        }
+      }
+
+      // Güncel GPS konumunu engellemeden iste
+      if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(
+          (pos) => {
+            observerLocation.lat = pos.coords.latitude;
+            observerLocation.lon = pos.coords.longitude;
+          },
+          () => {},
+          { enableHighAccuracy: false, timeout: 4500 }
+        );
+      }
+
+      // Arka kamerayı aç
+      try {
+        if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+          throw new Error("Kamera desteklenmiyor");
+        }
+        const stream = await navigator.mediaDevices.getUserMedia({
+          video: {
+            facingMode: { ideal: "environment" },
+            width: { ideal: 1280 },
+            height: { ideal: 720 }
+          },
+          audio: false
+        });
+        arEngine.stream = stream;
+        const video = document.getElementById("ar-camera-video");
+        video.srcObject = stream;
+        video.style.display = "block";
+        startARSession(false);
+      } catch (err) {
+        showToast("Kamera açılamadı; etkileşimli Test Modu başlatılıyor.");
+        startARSession(true);
+      }
+    });
+
+    // Test Modu Başlat
+    document.getElementById("open-test-ar-btn").addEventListener("click", () => {
+      startARSession(true);
+    });
+
+    function startARSession(isTest) {
+      arEngine.active = true;
+      arEngine.testMode = isTest;
+      arEngine.hasSensorData = false;
+      arEngine._receivedAbsolute = false;
+
+      const capella = getLiveCapellaHoriz();
+      const video = document.getElementById("ar-camera-video");
+      const modeHint = document.getElementById("ar-mode-hint");
+
+      if (isTest) {
+        video.style.display = "none";
+        // Arama deneyimi yaşatmak için Capella'nın yaklaşık 34° uzağından başlat
+        arEngine.camAz = norm360(capella.azimuth - 32);
+        arEngine.camAlt = clamp(capella.altitude - 15, 5, 72);
+        modeHint.textContent = "Test Modu: Gökyüzünü parmağınla veya fareyle sürükleyerek Capella'yı bul";
+      } else {
+        arEngine.camAz = capella.azimuth;
+        arEngine.camAlt = 25;
+        modeHint.textContent = "Telefonu gece gökyüzüne doğru tutup oku takip et";
+        window.addEventListener("deviceorientationabsolute", onAbsoluteOrientation, true);
+        window.addEventListener("deviceorientation", onFallbackOrientation, true);
+      }
+
+      document.getElementById("ar-stage").classList.add("active");
+      runARLoop();
+    }
+
+    function stopARSession() {
+      arEngine.active = false;
+      if (arEngine.rafId) {
+        cancelAnimationFrame(arEngine.rafId);
+        arEngine.rafId = null;
+      }
+      window.removeEventListener("deviceorientationabsolute", onAbsoluteOrientation, true);
+      window.removeEventListener("deviceorientation", onFallbackOrientation, true);
+
+      if (arEngine.stream) {
+        arEngine.stream.getTracks().forEach((t) => t.stop());
+        arEngine.stream = null;
+      }
+      const video = document.getElementById("ar-camera-video");
+      video.srcObject = null;
+
+      document.getElementById("ar-stage").classList.remove("active");
+      document.getElementById("ar-compass-panel").classList.remove("open");
+    }
+
+    document.getElementById("ar-close-btn").addEventListener("click", stopARSession);
+
+    // Pusula ayarı paneli
+    document.getElementById("ar-compass-toggle").addEventListener("click", () => {
+      document.getElementById("ar-compass-panel").classList.toggle("open");
+    });
+
+    document.getElementById("compass-offset-slider").addEventListener("input", (e) => {
+      arEngine.compassOffset = Number(e.target.value);
+      document.getElementById("compass-offset-readout").textContent =
+        `${arEngine.compassOffset > 0 ? "+" : ""}${arEngine.compassOffset}°`;
+    });
+
+    document.getElementById("compass-reset-btn").addEventListener("click", () => {
+      arEngine.compassOffset = 0;
+      document.getElementById("compass-offset-slider").value = "0";
+      document.getElementById("compass-offset-readout").textContent = "0°";
+    });
+
+    // Test modu (veya sensörsüz cihaz) için sürükleme desteği
+    const arStageEl = document.getElementById("ar-stage");
+    arStageEl.addEventListener("pointerdown", (e) => {
+      if (e.target.closest("button") || e.target.closest("input") || e.target.closest(".compass-panel")) return;
+      arEngine.dragging = true;
+      arEngine.lastX = e.clientX;
+      arEngine.lastY = e.clientY;
+    });
+
+    window.addEventListener("pointermove", (e) => {
+      if (!arEngine.active || !arEngine.dragging) return;
+      const dx = e.clientX - arEngine.lastX;
+      const dy = e.clientY - arEngine.lastY;
+      arEngine.lastX = e.clientX;
+      arEngine.lastY = e.clientY;
+
+      if (arEngine.testMode || !arEngine.hasSensorData) {
+        arEngine.camAz = norm360(arEngine.camAz - dx * 0.24);
+        arEngine.camAlt = clamp(arEngine.camAlt + dy * 0.24, -60, 88);
+      }
+    });
+
+    window.addEventListener("pointerup", () => {
+      arEngine.dragging = false;
+    });
+
+    /* ==========================================================================
+       AR CANVAS ÇİZİM DÖNGÜSÜ (3D KÜRESEL PROJEKSİYON — 60° DİKEY FOV)
+       ========================================================================== */
+    function runARLoop() {
+      const canvas = document.getElementById("ar-sky-canvas");
+      const ctx = canvas.getContext("2d");
+
+      const frame = (ts) => {
+        if (!arEngine.active) return;
+
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+        if (canvas.width !== Math.round(w * dpr) || canvas.height !== Math.round(h * dpr)) {
+          canvas.width = Math.round(w * dpr);
+          canvas.height = Math.round(h * dpr);
+        }
+
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx.clearRect(0, 0, w, h);
+
+        // Test modunda derin gece gökyüzü arka planı çiz
+        if (arEngine.testMode) {
+          const skyBg = ctx.createLinearGradient(0, 0, 0, h);
+          skyBg.addColorStop(0, "#030612");
+          skyBg.addColorStop(0.65, "#09122b");
+          skyBg.addColorStop(1, "#121d3a");
+          ctx.fillStyle = skyBg;
+          ctx.fillRect(0, 0, w, h);
+        }
+
+        const cx = w / 2;
+        const cy = h / 2;
+        const fovV = 60; // 60° dikey görüş alanı
+        const focal = (h / 2) / Math.tan((fovV / 2) * DEG2RAD);
+
+        const viewAz = norm360(arEngine.camAz + arEngine.compassOffset);
+        const viewAlt = arEngine.camAlt;
+
+        // Kamera ortonormal baz vektörleri (F: İleri, R: Sağ, U: Yukarı)
+        const F = altAzToENU(viewAlt, viewAz);
+        const azRad = viewAz * DEG2RAD;
+        const altRad = viewAlt * DEG2RAD;
+        const R = { x: Math.cos(azRad), y: -Math.sin(azRad), z: 0 };
+        const U = {
+          x: -Math.sin(altRad) * Math.sin(azRad),
+          y: -Math.sin(altRad) * Math.cos(azRad),
+          z: Math.cos(altRad)
+        };
+
+        const projectENU = (vec) => {
+          const zCam = vec.x * F.x + vec.y * F.y + vec.z * F.z;
+          const xCam = vec.x * R.x + vec.y * R.y + vec.z * R.z;
+          const yCam = vec.x * U.x + vec.y * U.y + vec.z * U.z;
+          const angDist = Math.acos(clamp(zCam, -1, 1)) * RAD2DEG;
+          const inFront = zCam > 0.08;
+          return {
+            xCam,
+            yCam,
+            zCam,
+            angDist,
+            inFront,
+            sx: inFront ? cx + (xCam / zCam) * focal : cx,
+            sy: inFront ? cy - (yCam / zCam) * focal : cy
+          };
+        };
+
+        // Test modunda küresel yıldız tarlasını çiz
+        if (arEngine.testMode) {
+          for (const st of arEngine.simStars) {
+            const pr = projectENU(st);
+            if (!pr.inFront) continue;
+            if (pr.sx < -10 || pr.sx > w + 10 || pr.sy < -10 || pr.sy > h + 10) continue;
+            ctx.beginPath();
+            ctx.arc(pr.sx, pr.sy, st.size, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(235, 240, 255, ${st.alpha})`;
+            ctx.fill();
+          }
+        }
+
+        // Ufuk çizgisi (alt = 0°) referans yayı
+        const horizonPts = [];
+        for (let deg = -55; deg <= 55; deg += 5) {
+          const hp = projectENU(altAzToENU(0, norm360(viewAz + deg)));
+          if (hp.inFront) horizonPts.push(hp);
+        }
+        if (horizonPts.length > 1) {
+          ctx.beginPath();
+          ctx.moveTo(horizonPts[0].sx, horizonPts[0].sy);
+          for (let i = 1; i < horizonPts.length; i++) {
+            ctx.lineTo(horizonPts[i].sx, horizonPts[i].sy);
+          }
+          ctx.strokeStyle = "rgba(140, 228, 190, 0.24)";
+          ctx.setLineDash([6, 6]);
+          ctx.lineWidth = 1;
+          ctx.stroke();
+          ctx.setLineDash([]);
+        }
+
+        // Canlı Capella ve Auriga referans yıldızlarını hesapla
+        const now = new Date();
+        const lst = computeLST(now, observerLocation.lon);
+        const capellaHoriz = raDecToAltAz(CONFIG.starRAHours, CONFIG.starDecDeg, observerLocation.lat, lst);
+        const capellaVec = altAzToENU(capellaHoriz.altitude, capellaHoriz.azimuth);
+        const capProj = projectENU(capellaVec);
+
+        // Auriga (Arabacı) yakın referans yıldızları ve ince takımyıldızı çizgisi
+        const aurigaScreen = { capella: capProj };
+        for (const st of AURIGA_REF_STARS) {
+          const sh = raDecToAltAz(st.ra, st.dec, observerLocation.lat, lst);
+          const sp = projectENU(altAzToENU(sh.altitude, sh.azimuth));
+          aurigaScreen[st.id] = sp;
+          if (sp.inFront && sp.sx > -30 && sp.sx < w + 30 && sp.sy > -30 && sp.sy < h + 30) {
+            ctx.beginPath();
+            ctx.arc(sp.sx, sp.sy, 2.4, 0, Math.PI * 2);
+            ctx.fillStyle = "rgba(232, 200, 136, 0.65)";
+            ctx.fill();
+
+            ctx.font = "500 10px 'Plus Jakarta Sans', sans-serif";
+            ctx.fillStyle = "rgba(232, 200, 136, 0.5)";
+            ctx.textAlign = "center";
+            ctx.fillText(st.name, sp.sx, sp.sy - 8);
+          }
+        }
+
+        // Auriga ince bağlantı çizgileri
+        const aurigaPairs = [
+          ["capella", "menkalinan"], ["menkalinan", "mahasim"],
+          ["mahasim", "elnath"], ["elnath", "hassaleh"],
+          ["hassaleh", "almaaz"], ["almaaz", "capella"]
+        ];
+        ctx.strokeStyle = "rgba(232, 200, 136, 0.22)";
+        ctx.lineWidth = 1;
+        for (const [aId, bId] of aurigaPairs) {
+          const a = aurigaScreen[aId];
+          const b = aurigaScreen[bId];
+          if (a && b && a.inFront && b.inFront) {
+            ctx.beginPath();
+            ctx.moveTo(a.sx, a.sy);
+            ctx.lineTo(b.sx, b.sy);
+            ctx.stroke();
+          }
+        }
+
+        // Üst HUD verilerini güncelle
+        document.getElementById("hud-target-az").textContent =
+          `${Math.round(capellaHoriz.azimuth)}° ${azimuthToTurkishCompass(capellaHoriz.azimuth).slice(0, 2)}`;
+        document.getElementById("hud-target-alt").textContent =
+          `${capellaHoriz.altitude >= 0 ? "+" : ""}${Math.round(capellaHoriz.altitude)}°`;
+        document.getElementById("hud-angle-diff").textContent = `${Math.round(capProj.angDist)}°`;
+
+        const pulse = 0.5 + 0.5 * Math.sin(ts * 0.005);
+        const isLocked = capProj.angDist <= 7.5;
+        const inViewport =
+          capProj.inFront &&
+          capProj.sx >= 24 &&
+          capProj.sx <= w - 24 &&
+          capProj.sy >= 70 &&
+          capProj.sy <= h - 90;
+
+        // Merkez nişangah halkası
+        const ringR = isLocked ? 46 + pulse * 5 : 36;
+        ctx.beginPath();
+        ctx.arc(cx, cy, ringR, 0, Math.PI * 2);
+        ctx.strokeStyle = isLocked ? "rgba(232, 200, 136, 0.95)" : "rgba(246, 242, 234, 0.34)";
+        ctx.lineWidth = isLocked ? 2.2 : 1.2;
+        ctx.stroke();
+
+        // İnce merkez artı
+        ctx.beginPath();
+        ctx.moveTo(cx - 9, cy);
+        ctx.lineTo(cx + 9, cy);
+        ctx.moveTo(cx, cy - 9);
+        ctx.lineTo(cx, cy + 9);
+        ctx.strokeStyle = isLocked ? "#f6e2b3" : "rgba(246, 242, 234, 0.42)";
+        ctx.lineWidth = 1.1;
+        ctx.stroke();
+
+        // Capella kadraj içindeyse parlayan altın yıldız halesiyle çiz
+        if (capProj.inFront && capProj.sx > -80 && capProj.sx < w + 80 && capProj.sy > -80 && capProj.sy < h + 80) {
+          const haloR = isLocked ? 52 + pulse * 14 : 28 + pulse * 6;
+          const glow = ctx.createRadialGradient(capProj.sx, capProj.sy, 0, capProj.sx, capProj.sy, haloR);
+          glow.addColorStop(0, "rgba(255, 250, 232, 1)");
+          glow.addColorStop(0.26, "rgba(232, 200, 136, 0.8)");
+          glow.addColorStop(0.62, "rgba(232, 200, 136, 0.22)");
+          glow.addColorStop(1, "rgba(232, 200, 136, 0)");
+
+          ctx.beginPath();
+          ctx.arc(capProj.sx, capProj.sy, haloR, 0, Math.PI * 2);
+          ctx.fillStyle = glow;
+          ctx.fill();
+
+          // Yıldız patlaması (starburst) ışınları
+          const mainRay = isLocked ? 30 + pulse * 7 : 16 + pulse * 3;
+          const diagRay = mainRay * 0.55;
+          ctx.strokeStyle = "#f6e2b3";
+          ctx.lineWidth = isLocked ? 1.8 : 1.3;
+          ctx.beginPath();
+          ctx.moveTo(capProj.sx - mainRay, capProj.sy);
+          ctx.lineTo(capProj.sx + mainRay, capProj.sy);
+          ctx.moveTo(capProj.sx, capProj.sy - mainRay);
+          ctx.lineTo(capProj.sx, capProj.sy + mainRay);
+          ctx.moveTo(capProj.sx - diagRay, capProj.sy - diagRay);
+          ctx.lineTo(capProj.sx + diagRay, capProj.sy + diagRay);
+          ctx.moveTo(capProj.sx - diagRay, capProj.sy + diagRay);
+          ctx.lineTo(capProj.sx + diagRay, capProj.sy - diagRay);
+          ctx.stroke();
+
+          // Nabız atan takımyıldız halkası
+          if (isLocked) {
+            ctx.beginPath();
+            ctx.arc(capProj.sx, capProj.sy, 24 + pulse * 12, 0, Math.PI * 2);
+            ctx.strokeStyle = `rgba(246, 226, 179, ${0.65 - pulse * 0.4})`;
+            ctx.lineWidth = 1.4;
+            ctx.stroke();
+          }
+
+          // Yıldız isim etiketi
+          ctx.textAlign = "center";
+          ctx.font = `600 ${isLocked ? 16 : 13}px 'Playfair Display', serif`;
+          ctx.fillStyle = "#f6e2b3";
+          ctx.fillText(`✦ ${CONFIG.starGivenName} ✦`, capProj.sx, capProj.sy - (isLocked ? 44 : 26));
+
+          ctx.font = "500 11px 'Plus Jakarta Sans', sans-serif";
+          ctx.fillStyle = "rgba(232, 200, 136, 0.85)";
+          ctx.fillText("Capella • Arabacı Takımyıldızı", capProj.sx, capProj.sy - (isLocked ? 27 : 12));
+        }
+
+        // Yönlendirme oku & Türkçe yön tarifi
+        const guidePill = document.getElementById("ar-guide-pill");
+        const guideText = document.getElementById("ar-guide-text");
+        const lockedCard = document.getElementById("ar-locked-card");
+
+        if (isLocked) {
+          guidePill.classList.add("locked");
+          guideText.textContent = `✦ ${CONFIG.starGivenName} Yıldızına Kilitlendin`;
+          lockedCard.classList.add("visible");
+        } else {
+          guidePill.classList.remove("locked");
+          lockedCard.classList.remove("visible");
+
+          // Küresel ekranda yıldız yön açısı (yıldız arkada bile olsa kesin yön verir)
+          const dirAngle = Math.atan2(-capProj.yCam, capProj.xCam);
+          if (!inViewport || capProj.angDist > 10) {
+            const arrowDist = 66;
+            const ax = cx + Math.cos(dirAngle) * arrowDist;
+            const ay = cy + Math.sin(dirAngle) * arrowDist;
+
+            ctx.save();
+            ctx.translate(ax, ay);
+            ctx.rotate(dirAngle);
+            ctx.beginPath();
+            ctx.moveTo(15, 0);
+            ctx.lineTo(-9, -9);
+            ctx.lineTo(-4, 0);
+            ctx.lineTo(-9, 9);
+            ctx.closePath();
+            ctx.fillStyle = "#e8c888";
+            ctx.shadowColor = "rgba(232, 200, 136, 0.65)";
+            ctx.shadowBlur = 12;
+            ctx.fill();
+            ctx.restore();
+          }
+
+          // Doğal Türkçe yönlendirme
+          const instructions = [];
+          if (Math.abs(capProj.xCam) > 0.1) {
+            instructions.push(capProj.xCam > 0 ? "Sağa dön" : "Sola dön");
+          }
+          if (Math.abs(capProj.yCam) > 0.1) {
+            instructions.push(capProj.yCam > 0 ? "Yukarı kaldır" : "Aşağı indir");
+          }
+          const dirLabel = instructions.length > 0 ? instructions.join(" • ") : "Neredeyse buldun";
+          const horizonSuffix = capellaHoriz.altitude < 0 ? " (Şu an ufuk altında)" : "";
+          guideText.textContent = `${dirLabel} — ${Math.round(capProj.angDist)}° kaldı${horizonSuffix}`;
+        }
+
+        arEngine.rafId = requestAnimationFrame(frame);
+      };
+
+      arEngine.rafId = requestAnimationFrame(frame);
+    }
+
+    /* ==========================================================================
+       SAYFA GENELİ ARKA PLAN YILDIZ TARLASI & BAŞLATMA
+       ========================================================================== */
+    function initPageStarfield() {
+      const canvas = document.getElementById("bg-starfield");
+      const ctx = canvas.getContext("2d");
+      let stars = [];
+
+      const resize = () => {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = window.innerWidth * dpr;
+        canvas.height = window.innerHeight * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        const count = Math.min(150, Math.floor((window.innerWidth * window.innerHeight) / 8000));
+        stars = Array.from({ length: count }, () => ({
+          x: Math.random() * window.innerWidth,
+          y: Math.random() * window.innerHeight,
+          r: 0.45 + Math.random() * 1.25,
+          phase: Math.random() * Math.PI * 2,
+          speed: 0.008 + Math.random() * 0.015,
+          gold: Math.random() < 0.22
+        }));
+      };
+
+      resize();
+      window.addEventListener("resize", resize);
+
+      const loop = (ts) => {
+        ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+        for (const s of stars) {
+          s.phase += s.speed;
+          const alpha = 0.2 + 0.65 * (0.5 + 0.5 * Math.sin(s.phase));
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+          ctx.fillStyle = s.gold
+            ? `rgba(232, 200, 136, ${alpha})`
+            : `rgba(246, 242, 234, ${alpha})`;
+          ctx.fill();
+        }
+        // Doğum haritası parıltısını da aynı döngüde yumuşakça çiz
+        drawBirthStarChart(ts);
+        requestAnimationFrame(loop);
+      };
+
+      requestAnimationFrame(loop);
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      populatePageFromConfig();
+      prepareBirthChartData();
+      setupBirthChartTooltips();
+      buildSimStars();
+      initPageStarfield();
+    });
+  </script>
+</body>
+</html>
